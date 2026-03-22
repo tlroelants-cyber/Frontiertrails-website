@@ -30,7 +30,7 @@ let bgColor = '#000000';
    1. CANVAS — resize & DPR handling
 ───────────────────────────────────────────── */
 function resizeCanvas() {
-  const dpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const w   = window.innerWidth;
   const h   = window.innerHeight;
   canvas.width  = w * dpr;
@@ -87,7 +87,12 @@ function drawFrame(index) {
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
 
-  const scale = Math.max(cw / iw, ch / ih) * IMAGE_SCALE;
+  // Mobile portrait + landscape image: contain so the full car is visible.
+  // Desktop: padded-cover (IMAGE_SCALE gives breathing room around edges).
+  const isMobile = cw < 768;
+  const scale = isMobile
+    ? Math.min(cw / iw, ch / ih)
+    : Math.max(cw / iw, ch / ih) * IMAGE_SCALE;
   const dw = iw * scale;
   const dh = ih * scale;
   const dx = (cw - dw) / 2;
@@ -149,14 +154,21 @@ async function preloadFrames() {
 /* ─────────────────────────────────────────────
    4. LENIS SMOOTH SCROLL
 ───────────────────────────────────────────── */
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothWheel: true,
-});
-lenis.on('scroll', ScrollTrigger.update);
-gsap.ticker.add(time => lenis.raf(time * 1000));
-gsap.ticker.lagSmoothing(0);
+const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+if (!isTouchDevice) {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+  });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(time => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+} else {
+  // Native scroll on touch — ScrollTrigger fires on native scroll automatically
+  gsap.ticker.lagSmoothing(0);
+}
 
 /* ─────────────────────────────────────────────
    5. FRAME → SCROLL BINDING
@@ -491,6 +503,45 @@ function initNav() {
 }
 
 /* ─────────────────────────────────────────────
+   15. MOBILE NAV
+───────────────────────────────────────────── */
+function initMobileNav() {
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  const links     = mobileNav.querySelectorAll('.mobile-nav-link');
+  if (!hamburger || !mobileNav) return;
+
+  function openNav() {
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileNav.classList.add('is-open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    gsap.fromTo(mobileNav, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' });
+    gsap.fromTo(links, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, stagger: 0.07, ease: 'power3.out', delay: 0.1 });
+  }
+
+  function closeNav() {
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    gsap.to(mobileNav, {
+      opacity: 0, duration: 0.3, ease: 'power2.in',
+      onComplete() { mobileNav.classList.remove('is-open'); }
+    });
+  }
+
+  hamburger.addEventListener('click', () =>
+    hamburger.classList.contains('is-open') ? closeNav() : openNav()
+  );
+  links.forEach(link => link.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && hamburger.classList.contains('is-open')) closeNav();
+  });
+}
+
+/* ─────────────────────────────────────────────
    INIT
 ───────────────────────────────────────────── */
 function init() {
@@ -505,6 +556,7 @@ function init() {
   initCursor();
   initWaitlist();
   initNav();
+  initMobileNav();
 
   document.querySelectorAll('.scroll-section').forEach(setupSectionAnimation);
 

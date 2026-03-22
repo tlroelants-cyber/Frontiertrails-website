@@ -193,6 +193,88 @@ ul { list-style: none; }
 }
 .cta-nav:hover { opacity: 0.85; }
 
+/* ── Hamburger Button ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.ham-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+}
+
+.hamburger.is-open .ham-line:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.hamburger.is-open .ham-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-open .ham-line:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+/* ── Mobile Nav Overlay ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.97);
+  z-index: 950;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.mobile-nav.is-open { pointer-events: auto; }
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.8rem;
+  text-align: center;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 10vw, 3.5rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: rgba(240, 235, 224, 0.75);
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus { color: var(--accent); }
+
+.mobile-nav-cta {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 1rem 2.5rem;
+  margin-top: 0.8rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.mobile-nav-cta:hover { background: var(--accent); color: var(--bg); }
+
 /* ── Hero ── */
 .hero-standalone {
   position: relative;
@@ -745,4 +827,32 @@ ul { list-style: none; }
 
   #scroll-container { height: 600vh; }
   .marquee-text { font-size: 22vw; }
+
+  /* Show hamburger with 44px touch target */
+  .hamburger {
+    display: flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  /* Activate mobile nav overlay */
+  .mobile-nav { display: flex; }
+
+  /* Disable blend mode — prevents hamburger lines inverting to black over the overlay */
+  .site-header { mix-blend-mode: normal; }
+
+  /* 44px touch targets */
+  .nav-logo { min-height: 44px; display: flex; align-items: center; }
+  .cta-nav { padding: 0.85rem 1.5rem; }
+
+  /* Prevent iOS auto-zoom on input focus (requires >= 16px) */
+  .waitlist-input { font-size: 16px; }
+
+  /* Override explicit cursor: none so submit button is tappable */
+  .waitlist-submit { cursor: pointer; }
+
+  /* Fix viewport height for mobile address bar hide/show */
+  .hero-standalone { height: 100vh; height: 100dvh; }
 }
