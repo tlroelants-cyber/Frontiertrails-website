@@ -156,8 +156,10 @@ async function preloadFrames() {
 ───────────────────────────────────────────── */
 const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
+let lenis = null;
+
 if (!isTouchDevice) {
-  const lenis = new Lenis({
+  lenis = new Lenis({
     duration: 1.2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smoothWheel: true,
@@ -171,6 +173,37 @@ if (!isTouchDevice) {
 }
 
 /* ─────────────────────────────────────────────
+   4b. SMOOTH PROGRESS LERP
+   Lenis smooths wheel scroll but can't intercept
+   native scrollbar dragging. This RAF loop lerps
+   toward the raw scroll progress so both inputs
+   feel equally cinematic.
+───────────────────────────────────────────── */
+let _rawProgress    = 0;
+let _smoothProgress = 0;
+
+function _runSmoothLoop() {
+  _smoothProgress += (_rawProgress - _smoothProgress) * 0.18;
+
+  // Canvas frame
+  const acc   = Math.min(_smoothProgress * FRAME_SPEED, 1);
+  const index = Math.min(Math.floor(acc * FRAME_COUNT), FRAME_COUNT - 1);
+  if (index !== currentFrame) {
+    currentFrame = index;
+    bgColor = sampled[Math.floor(index / 20) * 20] || '#000';
+    drawFrame(currentFrame);
+  }
+
+  // Hero opacity + circle-wipe clip-path
+  const p    = _smoothProgress;
+  heroSection.style.opacity = Math.max(0, 1 - p * 20).toString();
+  const wipe = Math.min(1, Math.max(0, (p - 0.004) / 0.065));
+  canvasWrap.style.clipPath = `circle(${wipe * 82}% at 50% 50%)`;
+
+  requestAnimationFrame(_runSmoothLoop);
+}
+
+/* ─────────────────────────────────────────────
    5. FRAME → SCROLL BINDING
 ───────────────────────────────────────────── */
 function initFrameScroll() {
@@ -179,43 +212,16 @@ function initFrameScroll() {
     start: 'top top',
     end: 'bottom bottom',
     scrub: true,
-    onUpdate(self) {
-      const accelerated = Math.min(self.progress * FRAME_SPEED, 1);
-      const index = Math.min(
-        Math.floor(accelerated * FRAME_COUNT),
-        FRAME_COUNT - 1
-      );
-      if (index !== currentFrame) {
-        currentFrame = index;
-        const nearestSample = Math.floor(index / 20) * 20;
-        bgColor = sampled[nearestSample] || '#000';
-        requestAnimationFrame(() => drawFrame(currentFrame));
-      }
-    },
+    onUpdate(self) { _rawProgress = self.progress; },
   });
 }
 
 /* ─────────────────────────────────────────────
    6. HERO TRANSITION — circle-wipe reveal
+   (driven by _runSmoothLoop — no ScrollTrigger needed)
 ───────────────────────────────────────────── */
 function initHeroTransition() {
-  ScrollTrigger.create({
-    trigger: scrollContainer,
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: true,
-    onUpdate(self) {
-      const p = self.progress;
-
-      // Hero fades out fast as scroll begins
-      heroSection.style.opacity = Math.max(0, 1 - p * 20).toString();
-
-      // Canvas expands from a central circle
-      const wipe = Math.min(1, Math.max(0, (p - 0.004) / 0.065));
-      const r = wipe * 82;
-      canvasWrap.style.clipPath = `circle(${r}% at 50% 50%)`;
-    },
-  });
+  // Intentionally empty — handled by _runSmoothLoop above.
 }
 
 /* ─────────────────────────────────────────────
@@ -243,7 +249,8 @@ function setupSectionAnimation(section) {
 
   const targets = section.querySelectorAll(
     '.section-label, .section-heading, .section-body, .section-list li, ' +
-    '.cta-label, .cta-heading, .cta-body, .waitlist-form, .stat'
+    '.cta-label, .cta-heading, .cta-body, .waitlist-form, .stat, ' +
+    '.routes-heading, .route-card, .routes-footer'
   );
 
   // Hide section initially
@@ -315,6 +322,7 @@ function setupSectionAnimation(section) {
 ───────────────────────────────────────────── */
 function initCounters() {
   document.querySelectorAll('.stat-number').forEach(el => {
+    if (el.dataset.static) return;
     const target   = parseFloat(el.dataset.value);
     const decimals = parseInt(el.dataset.decimals || '0');
     const section  = el.closest('.scroll-section');
@@ -369,7 +377,7 @@ function initMarquee() {
       trigger: scrollContainer,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: true,
+      scrub: 0.8,
     },
   });
 
@@ -382,8 +390,8 @@ function initMarquee() {
     onUpdate({ progress: p }) {
       let o = 0;
       if      (p >= 0.28 && p < 0.34)  o = (p - 0.28) / 0.06;
-      else if (p >= 0.34 && p <= 0.83) o = 1;
-      else if (p > 0.83  && p <= 0.88) o = 1 - (p - 0.83) / 0.05;
+      else if (p >= 0.34 && p <= 0.90) o = 1;
+      else if (p > 0.90  && p <= 0.95) o = 1 - (p - 0.90) / 0.05;
       wrap.style.opacity = o;
     },
   });
@@ -505,11 +513,28 @@ function initNav() {
 /* ─────────────────────────────────────────────
    15. MOBILE NAV
 ───────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   JOIN NOW — scroll to CTA section
+───────────────────────────────────────────── */
+function initJoinNow() {
+  const btn = document.getElementById('join-now-btn');
+  if (!btn) return;
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const bottom = document.body.scrollHeight - window.innerHeight;
+    if (lenis) {
+      lenis.scrollTo(bottom, { duration: 2 });
+    } else {
+      window.scrollTo({ top: bottom, behavior: 'smooth' });
+    }
+  });
+}
+
 function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
   const mobileNav = document.getElementById('mobile-nav');
-  const links     = mobileNav.querySelectorAll('.mobile-nav-link');
   if (!hamburger || !mobileNav) return;
+  const links     = mobileNav.querySelectorAll('.mobile-nav-link');
 
   function openNav() {
     hamburger.classList.add('is-open');
@@ -542,21 +567,77 @@ function initMobileNav() {
 }
 
 /* ─────────────────────────────────────────────
+   16. HOOK SECTION ANIMATION
+───────────────────────────────────────────── */
+function initHookSection() {
+  const hook    = document.getElementById('hook');
+  if (!hook) return;
+
+  const heading = hook.querySelector('.hook-heading');
+  const sub     = hook.querySelector('.hook-sub');
+
+  gsap.set([heading, sub], { opacity: 0, y: 50 });
+
+  ScrollTrigger.create({
+    trigger: hook,
+    start: 'top 65%',
+    onEnter() {
+      gsap.to(heading, { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out' });
+      gsap.to(sub,     { opacity: 1, y: 0, duration: 1.0, ease: 'power3.out', delay: 0.35 });
+    },
+  });
+}
+
+/* ─────────────────────────────────────────────
+   17. MOBILE SECTION TIMING OVERRIDES
+───────────────────────────────────────────── */
+function applyMobileOverrides() {
+  if (window.innerWidth >= 768) return;
+
+  // Routes: wider window so all 3 cards have time to be read
+  const routes = document.querySelector('.section-routes');
+  if (routes) {
+    routes.dataset.enter = '58';
+    routes.dataset.leave = '82';
+  }
+
+  // Stats: appear clearly after routes, with room to breathe
+  const stats = document.querySelector('.section-stats');
+  if (stats) {
+    stats.dataset.enter = '80';
+    stats.dataset.leave = '94';
+    stats.dataset.darkEnter = '62';
+    stats.dataset.darkLeave = '96';
+  }
+
+  // CTA: start after stats has cleared
+  const cta = document.querySelector('.section-cta');
+  if (cta) {
+    cta.dataset.enter = '92';
+    cta.dataset.leave = '100';
+  }
+}
+
+/* ─────────────────────────────────────────────
    INIT
 ───────────────────────────────────────────── */
 function init() {
   gsap.registerPlugin(ScrollTrigger);
 
+  applyMobileOverrides();
   positionSections();
   initFrameScroll();
   initHeroTransition();
+  _runSmoothLoop();
   initDarkOverlay();
   initMarquee();
   initCounters();
+  initHookSection();
   initCursor();
   initWaitlist();
   initNav();
   initMobileNav();
+  initJoinNow();
 
   document.querySelectorAll('.scroll-section').forEach(setupSectionAnimation);
 

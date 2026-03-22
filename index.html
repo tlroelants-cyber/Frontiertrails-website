@@ -60,33 +60,16 @@
     <nav class="nav-inner">
       <a href="#" class="nav-logo">FRONTIER TRAILS</a>
       <div class="nav-links">
-        <a href="#" class="nav-link">The Experience</a>
-        <a href="#" class="nav-link">Routes</a>
-        <a href="#" class="nav-link">Fleet</a>
-        <a href="#" class="cta-nav">Book Now</a>
+        <a href="#cta" class="cta-nav" id="join-now-btn">Join Now</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
-        <span class="ham-line"></span>
-        <span class="ham-line"></span>
-        <span class="ham-line"></span>
-      </button>
     </nav>
   </header>
 
-  <!-- Mobile navigation overlay -->
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <nav class="mobile-nav-links">
-      <a href="#" class="mobile-nav-link">The Experience</a>
-      <a href="#" class="mobile-nav-link">Routes</a>
-      <a href="#" class="mobile-nav-link">Fleet</a>
-      <a href="#" class="mobile-nav-link mobile-nav-cta">Book Now</a>
-    </nav>
-  </div>
 
   <!-- Hero (standalone 100vh, solid bg) -->
   <section class="hero-standalone" id="hero">
     <div class="hero-inner">
-      <span class="hero-label">Est. 2024 &nbsp;·&nbsp; Barcelona, Catalonia</span>
+      <span class="hero-label">Est. 2026 &nbsp;·&nbsp; Barcelona, Catalonia</span>
       <h1 class="hero-heading">
         <span class="word">FRONTIER</span>
         <span class="word word-serif">TRAILS</span>
@@ -103,6 +86,14 @@
     <span class="hero-side-text" aria-hidden="true">Pyrenees · Catalonia · Barcelona</span>
   </section>
 
+  <!-- Hook Section -->
+  <section class="hook-section" id="hook">
+    <div class="hook-inner">
+      <h2 class="hook-heading">You know the feeling. Three weeks of holiday. Zero time to plan the trip you actually want.</h2>
+      <p class="hook-sub">Because somewhere between the gear list, the forum threads, and the 'maybe next year' — real adventure gets filed under 'someday.' We removed everything standing between you and the trip.</p>
+    </div>
+  </section>
+
   <!-- Canvas (fixed, full viewport, circle-wipes in) -->
   <div class="canvas-wrap" id="canvas-wrap">
     <canvas id="canvas"></canvas>
@@ -114,12 +105,7 @@
   <!-- Dark overlay (for stats section) -->
   <div id="dark-overlay" aria-hidden="true"></div>
 
-  <!-- Marquee (fixed) -->
-  <div class="marquee-wrap" id="marquee-1" aria-hidden="true">
-    <div class="marquee-text">PYRENEES&nbsp;&nbsp;·&nbsp;&nbsp;CATALONIA&nbsp;&nbsp;·&nbsp;&nbsp;BARCELONA&nbsp;&nbsp;·&nbsp;&nbsp;FRONTIER TRAILS&nbsp;&nbsp;·&nbsp;&nbsp;PYRENEES&nbsp;&nbsp;·&nbsp;&nbsp;CATALONIA&nbsp;&nbsp;·&nbsp;&nbsp;BARCELONA&nbsp;&nbsp;·&nbsp;&nbsp;FRONTIER TRAILS&nbsp;&nbsp;·&nbsp;&nbsp;</div>
-  </div>
-
-  <!-- Scroll container: 1000vh, sections positioned absolutely -->
+<!-- Scroll container: 1000vh, sections positioned absolutely -->
   <div id="scroll-container">
 
     <!-- 001 / Concept -->
@@ -154,7 +140,7 @@
           <li>Curated route maps &amp; waypoints</li>
           <li>Emergency comms &amp; first aid</li>
           <li>24/7 trip support line</li>
-          <li>Local provisions guide</li>
+          <li>Add-on Customization</li>
         </ul>
       </div>
     </section>
@@ -164,33 +150,60 @@
              data-enter="52" data-leave="68" data-animation="scale-up">
       <div class="section-inner">
         <span class="section-label">004 &nbsp;/&nbsp; The Experience</span>
-        <h2 class="section-heading">The Pyrenees, your way</h2>
+        <h2 class="section-heading">The road is yours.</h2>
         <p class="section-body">From the Catalan foothills to high passes above 2,000m. We design the route — you decide the pace, the camp, the story. No guides. No groups. Just the road and the mountains.</p>
       </div>
     </section>
 
-    <!-- 005 / Stats (dark overlay) -->
+    <!-- 005 / Routes -->
+    <section class="scroll-section section-routes"
+             data-enter="66" data-leave="82" data-animation="stagger-up">
+      <div class="routes-wrap">
+        <span class="section-label">005 &nbsp;/&nbsp; Routes</span>
+        <h2 class="routes-heading">Off the<br><em>beaten path</em></h2>
+        <div class="routes-grid">
+
+          <article class="route-card">
+            <h3 class="route-name">The Pyrenean Smugglers Route</h3>
+            <p class="route-body">Mountain passes that feel like they belong to another century. Forests with no phone signal. A border that smugglers once crossed on foot — you'll cross it in a 4x4. The kind of drive that makes you feel like you found something most people don't know exists.</p>
+          </article>
+
+          <article class="route-card">
+            <h3 class="route-name">The Hidden Catalonia</h3>
+            <p class="route-body">An hour from Barcelona and it feels like a different planet. Volcanic craters, cliff edges that drop into nothing, and villages where the bar closes when the owner feels like it. The perfect trip for when you only have a long weekend but refuse to waste it.</p>
+          </article>
+
+          <article class="route-card">
+            <h3 class="route-name">The Empty Quarter</h3>
+            <p class="route-body">There's a part of Spain that looks nothing like Spain. Ochre desert, medieval ghost towns, and plateaus so vast they flatten your sense of time. You'll drive for an hour without seeing another car. That's not a warning — that's the whole point.</p>
+          </article>
+
+        </div>
+        <p class="routes-footer">Each route comes printed on a topographic rally-style map. Yours to keep.</p>
+      </div>
+    </section>
+
+    <!-- Stats (dark overlay) -->
     <section class="scroll-section section-stats"
-             data-enter="65" data-leave="80" data-animation="stagger-up"
-             data-dark-enter="65" data-dark-leave="80">
+             data-enter="81" data-leave="95" data-animation="stagger-up"
+             data-dark-enter="70" data-dark-leave="95">
       <div class="stats-grid">
         <div class="stat">
           <div class="stat-value">
-            <span class="stat-number" data-value="3" data-decimals="0">0</span>
-            <span class="stat-suffix">days</span>
+            <span class="stat-prefix">€</span><span class="stat-number" data-static="true">170</span>
+            <span class="stat-suffix">/ day</span>
           </div>
-          <span class="stat-label">Minimum rental</span>
+          <span class="stat-label">Fully equipped</span>
+        </div>
+        <div class="stat">
+          <div class="stat-value stat-value--text">
+            <span class="stat-text">Bcn</span>
+          </div>
+          <span class="stat-label">Starting point</span>
         </div>
         <div class="stat">
           <div class="stat-value">
-            <span class="stat-number" data-value="12" data-decimals="0">0</span>
-            <span class="stat-suffix">+</span>
-          </div>
-          <span class="stat-label">Curated Pyrenees routes</span>
-        </div>
-        <div class="stat">
-          <div class="stat-value">
-            <span class="stat-number" data-value="24" data-decimals="0">0</span>
+            <span class="stat-number" data-static="true">24</span>
             <span class="stat-suffix">hr</span>
           </div>
           <span class="stat-label">Trip support coverage</span>
@@ -205,19 +218,9 @@
       </div>
     </section>
 
-    <!-- 005 / Destinations -->
-    <section class="scroll-section section-content align-right"
-             data-enter="78" data-leave="90" data-animation="clip-reveal">
-      <div class="section-inner">
-        <span class="section-label">005 &nbsp;/&nbsp; Destinations</span>
-        <h2 class="section-heading">Catalonia to the peaks</h2>
-        <p class="section-body">Start in Barcelona. Drive into the Catalan highlands. Rise to the Pyrenean snow-line. We know every pass, every wild camp, every panoramic dawn — and we've mapped them all for you.</p>
-      </div>
-    </section>
-
     <!-- 006 / Waitlist (persist) -->
-    <section class="scroll-section section-cta"
-             data-enter="88" data-leave="100" data-animation="rotate-in" data-persist="true">
+    <section class="scroll-section section-cta" id="cta"
+             data-enter="92" data-leave="100" data-animation="rotate-in" data-persist="true">
       <div class="cta-inner">
         <span class="section-label cta-label">006 &nbsp;/&nbsp; Waitlist</span>
         <h2 class="cta-heading">Be first in line<br><em>to explore</em></h2>
