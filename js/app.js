@@ -250,7 +250,8 @@ function setupSectionAnimation(section) {
   const targets = section.querySelectorAll(
     '.section-label, .section-heading, .section-body, .section-list li, ' +
     '.cta-label, .cta-heading, .cta-body, .waitlist-form, .stat, ' +
-    '.routes-heading, .route-card, .routes-footer'
+    '.routes-heading, .route-card, .routes-footer, ' +
+    '.mid-cta-text, .stats-frame'
   );
 
   // Hide section initially
@@ -517,16 +518,21 @@ function initNav() {
    JOIN NOW — scroll to CTA section
 ───────────────────────────────────────────── */
 function initJoinNow() {
-  const btn = document.getElementById('join-now-btn');
-  if (!btn) return;
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    const bottom = document.body.scrollHeight - window.innerHeight;
-    if (lenis) {
-      lenis.scrollTo(bottom, { duration: 2 });
-    } else {
-      window.scrollTo({ top: bottom, behavior: 'smooth' });
-    }
+  const btns = [
+    document.getElementById('join-now-btn'),
+    document.getElementById('hero-cta-btn'),
+    document.getElementById('mid-cta-btn'),
+  ].filter(Boolean);
+  btns.forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const bottom = document.body.scrollHeight - window.innerHeight;
+      if (lenis) {
+        lenis.scrollTo(bottom, { duration: 2 });
+      } else {
+        window.scrollTo({ top: bottom, behavior: 'smooth' });
+      }
+    });
   });
 }
 
