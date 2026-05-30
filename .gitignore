@@ -4,5 +4,8 @@
 *.png
 *.mp4
 
+# Allow the hero background image needed for the website
+!Website header 2.0.png
+
 # Claude config
 .claude/
