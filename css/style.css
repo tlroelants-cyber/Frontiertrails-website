@@ -574,22 +574,35 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 0;
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem;
   border-top: 1px solid rgba(240, 235, 224, 0.1);
   border-bottom: 1px solid rgba(240, 235, 224, 0.1);
-  width: min(560px, 90vw);
+  width: min(620px, 90vw);
 }
 
 .mid-cta-text {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 300;
   font-style: italic;
   color: var(--text);
   letter-spacing: 0.01em;
+  margin-bottom: 0.75rem;
   text-shadow: 0 0 30px rgba(0,0,0,1), 0 0 12px rgba(0,0,0,1);
+}
+
+.mid-cta-subtext {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  font-weight: 400;
+  font-style: normal;
+  color: #ffffff;
+  opacity: 0.6;
+  letter-spacing: 0.04em;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 20px rgba(0,0,0,1), 0 0 8px rgba(0,0,0,1);
 }
 
 .mid-cta-btn {
