@@ -6,6 +6,8 @@
 
 # Allow the hero background image needed for the website
 !Website header 2.0.png
+# Allow OG image for social sharing
+!og-image.jpg
 
 # Claude config
 .claude/
