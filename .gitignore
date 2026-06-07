@@ -8,6 +8,8 @@
 !Website header 2.0.png
 # Allow OG image for social sharing
 !og-image.jpg
+# Allow new logo
+!New logo 1.0.png
 
 # Claude config
 .claude/
