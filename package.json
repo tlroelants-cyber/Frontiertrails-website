@@ -1,0 +1,26 @@
+{
+  "name": "frontiertrails-website",
+  "version": "1.0.0",
+  "description": "4x4 Camper Rental in Barcelona - Frontier Trails",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "start": "npx http-server -p 3000"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tlroelants-cyber/Frontiertrails-website.git"
+  },
+  "keywords": [
+    "camper",
+    "rental",
+    "4x4",
+    "barcelona",
+    "travel"
+  ],
+  "author": "Frontier Trails",
+  "license": "ISC"
+}
