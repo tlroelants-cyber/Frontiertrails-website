@@ -1,0 +1,122 @@
+{
+ "pyrenees": [
+  {
+   "src": "/img/frontier/pyrenees-1.webp",
+   "w": 1100,
+   "h": 619,
+   "title": "Entrance to Ordesa Valley from Torla, Ordesa y Monte Perdido National Park, Spain",
+   "artist": "Heparina1985",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Entrance_to_Ordesa_Valley_from_Torla,_Ordesa_y_Monte_Perdido_National_Park,_Spain.jpg"
+  },
+  {
+   "src": "/img/frontier/pyrenees-2.webp",
+   "w": 1100,
+   "h": 732,
+   "title": "Estany de Sant Maurici",
+   "artist": "Josep Renalias",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Estany_de_Sant_Maurici.JPG"
+  }
+ ],
+ "bardenas-reales": [
+  {
+   "src": "/img/frontier/bardenas-reales-1.webp",
+   "w": 1100,
+   "h": 734,
+   "title": "Castildetierra - Summer morning",
+   "artist": "Ant°AM",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Castildetierra_-_Summer_morning.jpg"
+  },
+  {
+   "src": "/img/frontier/bardenas-reales-2.webp",
+   "w": 1100,
+   "h": 733,
+   "title": "Bardena blanca - Penaflor-094",
+   "artist": "JohnNewton8",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Bardena_blanca_-_Penaflor-094.jpg"
+  }
+ ],
+ "monegros": [
+  {
+   "src": "/img/frontier/monegros-1.webp",
+   "w": 1100,
+   "h": 825,
+   "title": "Saladas de Bujaraloz y Sástago",
+   "artist": "jacinta lluch valero",
+   "license": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Saladas_de_Bujaraloz_y_S%C3%A1stago.jpg"
+  },
+  {
+   "src": "/img/frontier/monegros-2.webp",
+   "w": 1100,
+   "h": 825,
+   "title": "Saladas de Bujaraloz y Sástago (10759852984)",
+   "artist": "jacilluch",
+   "license": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Saladas_de_Bujaraloz_y_S%C3%A1stago_(10759852984).jpg"
+  }
+ ],
+ "garrotxa": [
+  {
+   "src": "/img/frontier/garrotxa-1.webp",
+   "w": 1100,
+   "h": 825,
+   "title": "La Fageda d´en Jordà - Garrotxa CIC 20101029 17234",
+   "artist": "Elmoianes",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:La_Fageda_d%C2%B4en_Jord%C3%A0_-_Garrotxa_CIC_20101029_17234.jpg"
+  },
+  {
+   "src": "/img/frontier/garrotxa-2.webp",
+   "w": 1100,
+   "h": 825,
+   "title": "Volcà de Santa Margarida",
+   "artist": "Carquinyol from Badalona, Catalunya",
+   "license": "CC BY-SA 2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Volc%C3%A0_de_Santa_Margarida.jpg"
+  }
+ ],
+ "sierra-de-guara": [
+  {
+   "src": "/img/frontier/sierra-de-guara-1.webp",
+   "w": 1100,
+   "h": 659,
+   "title": "PPA2143 Alquézar y cañones del Vero",
+   "artist": "Pedro José Ponce Asensio",
+   "license": "CC BY 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:PPA2143_Alqu%C3%A9zar_y_ca%C3%B1ones_del_Vero.jpg"
+  },
+  {
+   "src": "/img/frontier/sierra-de-guara-2.webp",
+   "w": 1100,
+   "h": 733,
+   "title": "Mascun Inferior - Sierra y Cañones de Guara",
+   "artist": "Túllio Morais Franca",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Mascun_Inferior_-_Sierra_y_Ca%C3%B1ones_de_Guara.jpg"
+  }
+ ],
+ "cap-de-creus": [
+  {
+   "src": "/img/frontier/cap-de-creus-1.webp",
+   "w": 1100,
+   "h": 733,
+   "title": "Far del cap de creus - panoramio",
+   "artist": "Olga Gairin",
+   "license": "CC BY-SA 3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Far_del_cap_de_creus_-_panoramio.jpg"
+  },
+  {
+   "src": "/img/frontier/cap-de-creus-2.webp",
+   "w": 1100,
+   "h": 732,
+   "title": "Cadaqués BW 2019-10-08 11-14-46",
+   "artist": "Berthold Werner",
+   "license": "CC BY-SA 4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Cadaqu%C3%A9s_BW_2019-10-08_11-14-46.jpg"
+  }
+ ]
+}

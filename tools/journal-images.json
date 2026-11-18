@@ -1,0 +1,99 @@
+{
+  "the-motherland": [
+    {
+      "src": "/img/journal/the-motherland.webp",
+      "w": 880,
+      "h": 1100
+    }
+  ],
+  "the-open-air": [
+    {
+      "src": "/img/journal/the-open-air.webp",
+      "w": 473,
+      "h": 846
+    }
+  ],
+  "the-night-watch": [
+    {
+      "src": "/img/journal/the-night-watch.webp",
+      "w": 598,
+      "h": 796
+    }
+  ],
+  "in-silence": [
+    {
+      "src": "/img/journal/in-silence.webp",
+      "w": 825,
+      "h": 1100
+    }
+  ],
+  "the-sky-fortress": [
+    {
+      "src": "/img/journal/the-sky-fortress.webp",
+      "w": 880,
+      "h": 1100
+    }
+  ],
+  "the-edge-of-the-atlantic": [
+    {
+      "src": "/img/journal/the-edge-of-the-atlantic.webp",
+      "w": 2640,
+      "h": 1100
+    }
+  ],
+  "the-detour": [
+    {
+      "src": "/img/journal/the-detour.webp",
+      "w": 1400,
+      "h": 922
+    },
+    {
+      "src": "/img/journal/the-detour-2.webp",
+      "w": 302,
+      "h": 369
+    },
+    {
+      "src": "/img/journal/the-detour-3.webp",
+      "w": 228,
+      "h": 281
+    }
+  ],
+  "the-mountain-kingdom": [
+    {
+      "src": "/img/journal/the-mountain-kingdom.webp",
+      "w": 1760,
+      "h": 1100
+    }
+  ],
+  "among-the-giants": [
+    {
+      "src": "/img/journal/among-the-giants.webp",
+      "w": 1760,
+      "h": 1100
+    }
+  ],
+  "sandwich-harbour": [
+    {
+      "src": "/img/journal/sandwich-harbour.webp",
+      "w": 724,
+      "h": 1084
+    },
+    {
+      "src": "/img/journal/sandwich-harbour-2.webp",
+      "w": 736,
+      "h": 1100
+    }
+  ],
+  "the-heart-of-the-namib": [
+    {
+      "src": "/img/journal/the-heart-of-the-namib.webp",
+      "w": 797,
+      "h": 971
+    },
+    {
+      "src": "/img/journal/the-heart-of-the-namib-2.webp",
+      "w": 796,
+      "h": 973
+    }
+  ]
+}

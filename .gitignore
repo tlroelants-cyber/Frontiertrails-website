@@ -4,12 +4,24 @@
 *.png
 *.mp4
 
-# Allow the hero background image needed for the website
-!Website header 2.0.png
 # Allow OG image for social sharing
 !og-image.jpg
-# Allow new logo
-!New logo 1.0.png
+# Allow favicons and app icons (referenced by index.html, site.webmanifest and JSON-LD)
+!favicon-16.png
+!favicon-32.png
+!apple-touch-icon.png
+!icon-192.png
+!icon-512.png
+
+# Internal business docs — never deploy
+frontier-trails-overview.md
+
+# Parked map experiments (live on the feature/route-journey branch)
+journey/
 
 # Claude config
 .claude/
+
+# Python cache
+__pycache__/
+*.pyc

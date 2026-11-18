@@ -7,7 +7,22 @@
 const FRAME_COUNT  = 242;
 const FRAME_SPEED  = 2.0;   // video completes at ~50% scroll
 const IMAGE_SCALE  = 0.88;  // padded-cover: 0.82–0.90 sweet spot
-const FRAME_PATH   = 'frames/frame_';
+
+// Serve a lighter 720px frame set to phones (half the bytes, drawn contained anyway)
+const IS_MOBILE_VP = window.innerWidth < 768;
+const FRAME_PATH   = IS_MOBILE_VP ? 'frames-mobile/frame_' : 'frames/frame_';
+
+// Campfire idle loop — once the sequence completes, ping-pong these
+// static-camera tail frames so the flame keeps flickering (nothing else moves).
+const FIRE_START = 229;              // frame_0230 — camp fully set, camera locked
+const FIRE_END   = FRAME_COUNT - 1;  // frame_0242
+const FIRE_FPS   = 8;
+
+// Respect the OS motion preference. Scroll-driven motion (frame scrub, circle
+// wipe) stays — the user drives it. What goes: the smooth-scroll hijack, the
+// section entrance transforms, and the campfire idle loop.
+const PREFERS_REDUCED_MOTION =
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ── DOM refs ── */
 const canvas        = document.getElementById('canvas');
@@ -37,7 +52,9 @@ function resizeCanvas() {
   canvas.height = h * dpr;
   canvas.style.width  = w + 'px';
   canvas.style.height = h + 'px';
-  ctx.scale(dpr, dpr);
+  // setTransform, not scale() — scale() multiplies into the existing matrix, so
+  // every resize or device rotation would compound the DPR again.
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   if (frames[currentFrame]) drawFrame(currentFrame);
 }
 
@@ -141,6 +158,7 @@ async function preloadFrames() {
         const pct = Math.round((loaded / FRAME_COUNT) * 100);
         loaderBar.style.width = pct + '%';
         loaderPercent.textContent = pct + '%';
+        loader.setAttribute('aria-valuenow', String(pct));
       })
     )
   );
@@ -158,7 +176,9 @@ const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
 
 let lenis = null;
 
-if (!isTouchDevice) {
+// Reduced motion gets native scroll — the smooth-scroll hijack is exactly the
+// kind of motion the preference is asking us to drop.
+if (!isTouchDevice && !PREFERS_REDUCED_MOTION) {
   lenis = new Lenis({
     duration: 1.2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -181,24 +201,56 @@ if (!isTouchDevice) {
 ───────────────────────────────────────────── */
 let _rawProgress    = 0;
 let _smoothProgress = 0;
+let _lastHeroOpacity = null;   // guards the per-frame style writes below
+let _lastWipePct     = null;
 
 function _runSmoothLoop() {
   _smoothProgress += (_rawProgress - _smoothProgress) * 0.18;
 
   // Canvas frame
-  const acc   = Math.min(_smoothProgress * FRAME_SPEED, 1);
-  const index = Math.min(Math.floor(acc * FRAME_COUNT), FRAME_COUNT - 1);
+  const acc = Math.min(_smoothProgress * FRAME_SPEED, 1);
+  let index;
+  if (acc >= 1) {
+    if (PREFERS_REDUCED_MOTION) {
+      // Hold on a single frame instead of flickering the fire indefinitely.
+      index = FIRE_START;
+    } else {
+      // Sequence done — keep the fire alive by ping-ponging the tail frames.
+      const span  = FIRE_END - FIRE_START;
+      const cycle = (performance.now() / 1000) * FIRE_FPS % (span * 2);
+      const tri   = cycle <= span ? cycle : span * 2 - cycle;
+      index = FIRE_START + Math.round(tri);
+    }
+  } else {
+    index = Math.min(Math.floor(acc * FRAME_COUNT), FRAME_COUNT - 1);
+  }
   if (index !== currentFrame) {
     currentFrame = index;
     bgColor = sampled[Math.floor(index / 20) * 20] || '#000';
     drawFrame(currentFrame);
   }
 
-  // Hero opacity + circle-wipe clip-path
-  const p    = _smoothProgress;
-  heroSection.style.opacity = Math.max(0, 1 - p * 20).toString();
+  // Hero opacity + circle-wipe clip-path.
+  // Both settle to a constant after ~7% scroll, so only write when the value
+  // actually changes. Re-assigning clipPath every frame makes the compositor
+  // re-parse and re-clip the fixed full-viewport canvas layer for the whole
+  // remaining 1200vh of scrolling, which is pure waste.
+  const p = _smoothProgress;
+
+  const heroOpacity = Math.max(0, 1 - p * 20).toFixed(3);
+  if (heroOpacity !== _lastHeroOpacity) {
+    _lastHeroOpacity = heroOpacity;
+    heroSection.style.opacity = heroOpacity;
+    // Once invisible, take it out of the paint path entirely.
+    heroSection.style.visibility = heroOpacity === '0.000' ? 'hidden' : '';
+  }
+
   const wipe = Math.min(1, Math.max(0, (p - 0.004) / 0.065));
-  canvasWrap.style.clipPath = `circle(${wipe * 82}% at 50% 50%)`;
+  const wipePct = (wipe * 82).toFixed(2);
+  if (wipePct !== _lastWipePct) {
+    _lastWipePct = wipePct;
+    canvasWrap.style.clipPath = `circle(${wipePct}% at 50% 50%)`;
+  }
 
   requestAnimationFrame(_runSmoothLoop);
 }
@@ -214,14 +266,6 @@ function initFrameScroll() {
     scrub: true,
     onUpdate(self) { _rawProgress = self.progress; },
   });
-}
-
-/* ─────────────────────────────────────────────
-   6. HERO TRANSITION — circle-wipe reveal
-   (driven by _runSmoothLoop — no ScrollTrigger needed)
-───────────────────────────────────────────── */
-function initHeroTransition() {
-  // Intentionally empty — handled by _runSmoothLoop above.
 }
 
 /* ─────────────────────────────────────────────
@@ -254,41 +298,40 @@ function setupSectionAnimation(section) {
     '.mid-cta-text, .stats-frame'
   );
 
-  // Hide section initially
-  gsap.set(section, { opacity: 0 });
+  // Hide section initially (autoAlpha = opacity + visibility:hidden,
+  // so hidden sections are also removed from the tab/focus order)
+  gsap.set(section, { autoAlpha: 0 });
 
   // Build entrance timeline
   const tl = gsap.timeline({ paused: true });
 
   const D = { stagger: 0.13, ease: 'power3.out' };
 
-  switch (type) {
-    case 'fade-up':
-      tl.from(targets, { y: 55,  opacity: 0, duration: 0.95, ...D });
-      break;
-    case 'slide-left':
-      tl.from(targets, { x: -90, opacity: 0, duration: 0.95, ...D });
-      break;
-    case 'slide-right':
-      tl.from(targets, { x: 90,  opacity: 0, duration: 0.95, ...D });
-      break;
-    case 'scale-up':
-      tl.from(targets, { scale: 0.82, opacity: 0, duration: 1.05,
-                         stagger: 0.12, ease: 'power2.out' });
-      break;
-    case 'stagger-up':
-      tl.from(targets, { y: 65,  opacity: 0, duration: 0.85,
-                         stagger: 0.16, ease: 'power3.out' });
-      break;
-    case 'clip-reveal':
-      tl.from(targets, { clipPath: 'inset(100% 0 0 0)', opacity: 0, duration: 1.2,
-                         stagger: 0.15, ease: 'power4.inOut' });
-      break;
-    case 'rotate-in':
-      tl.from(targets, { y: 45, rotation: 2, opacity: 0, duration: 0.95, ...D });
-      break;
-    default:
-      tl.fromTo(section, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+  // Reduced motion: keep the reveal (it signals "this section is now live")
+  // but strip the travel — opacity only, no translation or rotation.
+  if (PREFERS_REDUCED_MOTION) {
+    tl.from(targets, { opacity: 0, duration: 0.4, stagger: 0.05 });
+  } else {
+    switch (type) {
+      case 'fade-up':
+        tl.from(targets, { y: 55,  opacity: 0, duration: 0.95, ...D });
+        break;
+      case 'slide-left':
+        tl.from(targets, { x: -90, opacity: 0, duration: 0.95, ...D });
+        break;
+      case 'slide-right':
+        tl.from(targets, { x: 90,  opacity: 0, duration: 0.95, ...D });
+        break;
+      case 'stagger-up':
+        tl.from(targets, { y: 65,  opacity: 0, duration: 0.85,
+                           stagger: 0.16, ease: 'power3.out' });
+        break;
+      case 'rotate-in':
+        tl.from(targets, { y: 45, rotation: 2, opacity: 0, duration: 0.95, ...D });
+        break;
+      default:
+        tl.fromTo(section, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+    }
   }
 
   let visible = false;
@@ -302,17 +345,21 @@ function setupSectionAnimation(section) {
 
       if (inRange && !visible) {
         visible = true;
-        gsap.set(section, { opacity: 1 });
+        gsap.killTweensOf(section);
+        gsap.set(section, { autoAlpha: 1 });
         section.classList.add('is-active');
         tl.restart();
       } else if (!inRange && visible && !persist) {
         visible = false;
-        gsap.set(section, { opacity: 0 });
         section.classList.remove('is-active');
-        tl.pause(0); // reset for re-entry
+        // Soft fade-out instead of a hard cut when scrolling back through
+        gsap.to(section, {
+          autoAlpha: 0, duration: 0.25, ease: 'power1.out',
+          onComplete() { tl.pause(0); }, // reset for re-entry
+        });
       } else if (persist && p > leave && visible) {
         // persisted CTA: stays visible forever after entry
-        gsap.set(section, { opacity: 1 });
+        gsap.set(section, { autoAlpha: 1 });
       }
     },
   });
@@ -361,44 +408,6 @@ function initCounters() {
 }
 
 /* ─────────────────────────────────────────────
-   10. HORIZONTAL MARQUEE
-───────────────────────────────────────────── */
-function initMarquee() {
-  const wrap = document.getElementById('marquee-1');
-  if (!wrap) return;
-
-  const text  = wrap.querySelector('.marquee-text');
-  const speed = parseFloat(wrap.dataset.scrollSpeed) || -20;
-
-  // Marquee moves with scroll
-  gsap.to(text, {
-    xPercent: speed,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: scrollContainer,
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 0.8,
-    },
-  });
-
-  // Marquee fades in between 25–85% progress
-  ScrollTrigger.create({
-    trigger: scrollContainer,
-    start: 'top top',
-    end: 'bottom bottom',
-    scrub: true,
-    onUpdate({ progress: p }) {
-      let o = 0;
-      if      (p >= 0.28 && p < 0.34)  o = (p - 0.28) / 0.06;
-      else if (p >= 0.34 && p <= 0.90) o = 1;
-      else if (p > 0.90  && p <= 0.95) o = 1 - (p - 0.90) / 0.05;
-      wrap.style.opacity = o;
-    },
-  });
-}
-
-/* ─────────────────────────────────────────────
    11. DARK OVERLAY (stats section)
 ───────────────────────────────────────────── */
 function initDarkOverlay() {
@@ -428,17 +437,34 @@ function initDarkOverlay() {
    12. CUSTOM CURSOR
 ───────────────────────────────────────────── */
 function initCursor() {
+  const wrap = document.getElementById('cursor');
   const dot  = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-  if (!dot || !ring) return;
+  if (!wrap || !dot || !ring) return;
+
+  // No JS cursor on touch, and none under reduced motion (the ring lerps).
+  if (isTouchDevice || PREFERS_REDUCED_MOTION) return;
+
+  // Only now hide the native pointer — if this function never runs because the
+  // script is blocked or still loading, the real cursor stays put.
+  document.documentElement.classList.add('has-custom-cursor');
 
   let mx = 0, my = 0;
   let rx = 0, ry = 0;
+
+  let tracking = false;
 
   window.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     dot.style.left = mx + 'px';
     dot.style.top  = my + 'px';
+    // Reveal on first move, and snap the ring there so it doesn't fly in
+    // from the corner.
+    if (!tracking) {
+      tracking = true;
+      rx = mx; ry = my;
+      wrap.classList.add('is-tracking');
+    }
   });
 
   (function animateRing() {
@@ -449,10 +475,21 @@ function initCursor() {
     requestAnimationFrame(animateRing);
   })();
 
+  // The menu button and the menu itself are plain line work: no ring
+  // drawn around them (it read as a circle around the three lines).
+  const isMenu = el => !!el.closest('#hamburger, #mobile-nav');
+
   document.querySelectorAll('a, button, .cta-button').forEach(el => {
+    if (isMenu(el)) return;
     el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
     el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
   });
+
+  const menuBtn = document.getElementById('hamburger');
+  if (menuBtn) {
+    menuBtn.addEventListener('mouseenter', () => ring.classList.add('is-hidden'));
+    menuBtn.addEventListener('mouseleave', () => ring.classList.remove('is-hidden'));
+  }
 }
 
 /* ─────────────────────────────────────────────
@@ -464,9 +501,13 @@ function initWaitlist() {
   const error   = document.getElementById('waitlist-error');
   if (!form) return;
 
+  const btn = form.querySelector('.waitlist-submit');
+  // Read the label from the markup rather than repeating it here, so the button
+  // can't silently rename itself when the copy in index.html changes.
+  const btnLabel = btn ? btn.textContent.trim() : 'Apply for early access';
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.waitlist-submit');
     btn.textContent = 'Sending…';
     btn.disabled = true;
     error.style.display = 'none';
@@ -492,8 +533,9 @@ function initWaitlist() {
       }
     } catch {
       error.style.display = 'block';
+      error.setAttribute('role', 'alert');
       gsap.from(error, { opacity: 0, duration: 0.4 });
-      btn.textContent = 'Join the Waitlist';
+      btn.textContent = btnLabel;
       btn.disabled = false;
     }
   });
@@ -503,72 +545,115 @@ function initWaitlist() {
    14. NAV — compact on scroll
 ───────────────────────────────────────────── */
 function initNav() {
+  const header = document.getElementById('site-header');
+
   ScrollTrigger.create({
     trigger: scrollContainer,
     start: '1px top',
-    onEnter:     () => document.getElementById('site-header').classList.add('scrolled'),
-    onLeaveBack: () => document.getElementById('site-header').classList.remove('scrolled'),
+    onEnter:     () => header.classList.add('scrolled'),
+    onLeaveBack: () => header.classList.remove('scrolled'),
   });
+
+  // Ghost-hamburger dim-on-scroll + the hamburger menu itself live in js/nav.js
+  // (shared across every page, not just the homepage).
 }
 
 /* ─────────────────────────────────────────────
-   15. MOBILE NAV
+   15. JOIN NOW — scroll to the waitlist form
+
+   The CTA section is absolutely positioned inside #scroll-container by
+   positionSections(), centred on its own midpoint via translateY(-50%). So
+   the scroll position that centres it in the viewport is its offset within
+   the container, plus the container's offset in the page, minus half a
+   viewport. Scrolling to the page bottom instead lands past the form.
 ───────────────────────────────────────────── */
-/* ─────────────────────────────────────────────
-   JOIN NOW — scroll to CTA section
-───────────────────────────────────────────── */
+function sectionScrollTarget(section) {
+  const max = document.body.scrollHeight - window.innerHeight;
+  if (!section) return max;
+
+  const y = scrollContainer.offsetTop + section.offsetTop - window.innerHeight / 2;
+  return Math.max(0, Math.min(y, max));
+}
+
+function scrollToY(y, duration) {
+  if (lenis) {
+    lenis.scrollTo(y, { duration });
+  } else {
+    window.scrollTo({
+      top: y,
+      behavior: PREFERS_REDUCED_MOTION ? 'auto' : 'smooth',
+    });
+  }
+}
+
 function initJoinNow() {
   const btns = [
     document.getElementById('join-now-btn'),
     document.getElementById('hero-cta-btn'),
     document.getElementById('mid-cta-btn'),
+    document.getElementById('mobile-apply-btn'),
+    document.getElementById('footer-apply-btn'),
   ].filter(Boolean);
+  const cta = document.getElementById('cta');
   btns.forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
-      const bottom = document.body.scrollHeight - window.innerHeight;
-      if (lenis) {
-        lenis.scrollTo(bottom, { duration: 2 });
-      } else {
-        window.scrollTo({ top: bottom, behavior: 'smooth' });
-      }
+      scrollToY(sectionScrollTarget(cta), 2);
     });
   });
+
+  // Arriving from another page's "Apply" link (/#cta): the section only has
+  // a real position once positionSections() has run, so the browser's own
+  // anchor jump lands in the wrong place. Jump there ourselves.
+  if (location.hash === '#cta') {
+    requestAnimationFrame(() => window.scrollTo(0, sectionScrollTarget(cta)));
+  }
 }
 
-function initMobileNav() {
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  if (!hamburger || !mobileNav) return;
-  const links     = mobileNav.querySelectorAll('.mobile-nav-link');
+/* ─────────────────────────────────────────────
+   15b. CHAPTER PROGRESS INDICATOR (desktop)
+───────────────────────────────────────────── */
+function initChapterNav() {
+  const nav = document.getElementById('chapter-nav');
+  if (!nav || isTouchDevice || window.innerWidth < 900) return;
 
-  function openNav() {
-    hamburger.classList.add('is-open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    mobileNav.classList.add('is-open');
-    mobileNav.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    gsap.fromTo(mobileNav, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' });
-    gsap.fromTo(links, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, stagger: 0.07, ease: 'power3.out', delay: 0.1 });
-  }
+  const chapters = [...document.querySelectorAll('.scroll-section')]
+    .filter(s => s.querySelector('.section-label'))
+    .map(s => ({
+      el: s,
+      enter: parseFloat(s.dataset.enter) / 100,
+      leave: parseFloat(s.dataset.leave) / 100,
+      num: (s.querySelector('.section-label').textContent.match(/\d{3}/) || ['•'])[0],
+    }));
+  if (!chapters.length) return;
 
-  function closeNav() {
-    hamburger.classList.remove('is-open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    gsap.to(mobileNav, {
-      opacity: 0, duration: 0.3, ease: 'power2.in',
-      onComplete() { mobileNav.classList.remove('is-open'); }
+  chapters.forEach(ch => {
+    const dot = document.createElement('button');
+    dot.className = 'chapter-dot';
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Chapter ${ch.num}`);
+    dot.innerHTML = `<span class="chapter-num">${ch.num}</span>`;
+    // Section progress is a fraction of #scroll-container, not of the whole
+    // page — the page also holds the hero, hook, FAQ and footer. Resolve
+    // against the section's real position instead.
+    dot.addEventListener('click', () => {
+      scrollToY(sectionScrollTarget(ch.el), 1.4);
     });
-  }
+    ch.dot = dot;
+    nav.appendChild(dot);
+  });
 
-  hamburger.addEventListener('click', () =>
-    hamburger.classList.contains('is-open') ? closeNav() : openNav()
-  );
-  links.forEach(link => link.addEventListener('click', closeNav));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && hamburger.classList.contains('is-open')) closeNav();
+  ScrollTrigger.create({
+    trigger: scrollContainer,
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: true,
+    onUpdate({ progress: p }) {
+      nav.classList.toggle('visible', p > 0.04 && p < 0.995);
+      let active = -1;
+      chapters.forEach((ch, i) => { if (p >= ch.enter - 0.02) active = i; });
+      chapters.forEach((ch, i) => ch.dot.classList.toggle('active', i === active));
+    },
   });
 }
 
@@ -633,17 +718,15 @@ function init() {
   applyMobileOverrides();
   positionSections();
   initFrameScroll();
-  initHeroTransition();
   _runSmoothLoop();
   initDarkOverlay();
-  initMarquee();
   initCounters();
   initHookSection();
   initCursor();
   initWaitlist();
   initNav();
-  initMobileNav();
   initJoinNow();
+  initChapterNav();
 
   document.querySelectorAll('.scroll-section').forEach(setupSectionAnimation);
 

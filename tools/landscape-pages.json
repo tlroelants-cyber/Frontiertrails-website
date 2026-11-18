@@ -1,0 +1,1576 @@
+[
+ {
+  "slug": "high-mountains",
+  "name": "The High Mountains",
+  "number": "01",
+  "title": "Pyrenees & Picos de Europa Road Trip | Frontier Trails",
+  "description": "Drive into Spain's high mountains: glacial lakes, 3,000 m peaks and canyon trails in the Pyrenees, Picos de Europa and Sierra Nevada. Seasons and tips.",
+  "h1": "The High Mountains of Spain: Pyrenees, Picos de Europa & Sierra Nevada by Car",
+  "hook": "Where Spain climbs past 3,000 metres.",
+  "best_season": "Late June – October",
+  "hero": {
+   "map_focus": "Northern Spain + Sierra Nevada inset",
+   "highlight": [
+    {
+     "name": "Pyrenees",
+     "box": [
+      42.1,
+      43.0,
+      -1.8,
+      3.2
+     ]
+    },
+    {
+     "name": "Picos de Europa",
+     "box": [
+      43.1,
+      43.35,
+      -5.1,
+      -4.5
+     ]
+    },
+    {
+     "name": "Sierra Nevada",
+     "box": [
+      36.9,
+      37.2,
+      -3.6,
+      -2.8
+     ]
+    }
+   ]
+  },
+  "cta_primary": "Sign up for your dream trip",
+  "intro": [
+   "Spain is not all beaches and plains. Along its northern edge, the Pyrenees rise into a wall of granite and limestone with peaks above 3,000 metres, hundreds of glacial lakes and valleys that only open up once the snow melts. Further west, the Picos de Europa stack sharp limestone towers just 20 kilometres from the Atlantic. And in the far south, the Sierra Nevada holds the highest summit of mainland Spain above Granada.",
+   "This is the landscape for people who want to earn their views. Drive up winding passes in the morning, hike to a lake that is still half frozen in June, and be back in a stone village for dinner. The best of it is spread over remote valleys with few buses and long distances between trailheads.",
+   "From Barcelona, the Catalan Pyrenees start less than two hours away. Aragon's Ordesa and the French side are a natural extension, and the Picos fit perfectly into a two-week loop across the north."
+  ],
+  "highlights": [
+   {
+    "n": 1,
+    "name": "Aigüestortes i Estany de Sant Maurici National Park",
+    "area": "Catalan Pyrenees (Lleida)",
+    "best": "Jun–Oct",
+    "best_for": [
+     "hiking",
+     "lakes"
+    ],
+    "text": "Catalonia's only national park: more than 200 lakes, granite peaks and meadows full of streams. The Sant Maurici lake under the twin Encantats peaks is the classic image.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 2,
+    "name": "Vall Fosca & Estany Gento",
+    "area": "Pallars Jussà (Lleida)",
+    "best": "Jul–Sep",
+    "best_for": [
+     "hiking",
+     "lakes"
+    ],
+    "text": "A quiet valley with a cable car up to a chain of high lakes and a flat trail along an old railway built for a dam project. One of the easiest ways into the high lake country.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 3,
+    "name": "Pedraforca",
+    "area": "Berguedà (Barcelona)",
+    "best": "May–Oct",
+    "best_for": [
+     "hiking",
+     "views"
+    ],
+    "text": "A forked limestone giant that looks unclimbable from below. Hike around its base or scramble to the top for views across the Cadí range.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 4,
+    "name": "Vall de Núria",
+    "area": "Ripollès (Girona)",
+    "best": "Jun–Oct",
+    "best_for": [
+     "hiking",
+     "families"
+    ],
+    "text": "A high valley reached by rack railway, with trails up to Puigmal on the French border.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 5,
+    "name": "Pica d'Estats",
+    "area": "Vall Ferrera (Lleida)",
+    "best": "Jul–Sep",
+    "best_for": [
+     "summit hike"
+    ],
+    "text": "The highest peak in Catalonia (3,143 m) on the border with France. A long, demanding day through lakes and boulder fields to a summit with a view over half the Pyrenees.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 6,
+    "name": "Congost de Mont-rebei",
+    "area": "Montsec (Lleida / Huesca)",
+    "best": "Mar–Jun, Sep–Nov",
+    "best_for": [
+     "hiking",
+     "views"
+    ],
+    "text": "A gorge with walls up to 500 metres, a path carved into the rock face and hanging bridges. The Aragonese side adds the vertiginous wooden stairs of Montfalcó.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 7,
+    "name": "Ordesa y Monte Perdido National Park",
+    "area": "Sobrarbe (Huesca)",
+    "best": "Jun–Oct",
+    "best_for": [
+     "hiking",
+     "waterfalls"
+    ],
+    "text": "A glacial canyon lined with beech forest and waterfalls under the Monte Perdido massif, part of a UNESCO World Heritage site shared with France. The walk to the Cola de Caballo falls is one of Spain's great day hikes.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 8,
+    "name": "Aigualluts & the Aneto massif",
+    "area": "Benasque valley (Huesca)",
+    "best": "Jul–Sep",
+    "best_for": [
+     "hiking",
+     "waterfalls"
+    ],
+    "text": "A meadow where the river disappears into a sinkhole, at the foot of Aneto, the highest peak of the Pyrenees.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 9,
+    "name": "Mallos de Riglos",
+    "area": "Hoya de Huesca",
+    "best": "Oct–May",
+    "best_for": [
+     "views",
+     "climbing",
+     "short hikes"
+    ],
+    "text": "Red conglomerate towers up to 300 metres high rising straight out of the village. Vultures circle the walls; climbers hang off them.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 10,
+    "name": "Cirque de Gavarnie & Brèche de Roland (France)",
+    "area": "Hautes-Pyrénées",
+    "best": "Jun–Oct",
+    "best_for": [
+     "hiking",
+     "views"
+    ],
+    "text": "A vast amphitheatre of cliffs with one of Europe's tallest waterfalls. Above it, the Brèche de Roland: a 100-metre gap in the ridge on the Spain–France border.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 11,
+    "name": "Ruta del Cares",
+    "area": "Picos de Europa (Asturias / León)",
+    "best": "May–Oct",
+    "best_for": [
+     "hiking"
+    ],
+    "text": "About 12 km (one way) of path cut into the side of a limestone gorge between Poncebos and Caín, with tunnels, bridges and a drop to the river far below.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 12,
+    "name": "Sierra Nevada & the Alpujarras",
+    "area": "Granada",
+    "best": "Jun–Oct (hiking)",
+    "best_for": [
+     "summit hike",
+     "villages"
+    ],
+    "text": "Mainland Spain's highest peaks above the white villages of the Alpujarras. In summer a guided park minibus takes hikers high up the mountain to start the Mulhacén ascent.",
+    "link": null,
+    "image": null
+   }
+  ],
+  "activities": [
+   {
+    "label": "Hiking & lakes",
+    "text": "Day hikes to glacial lakes in Aigüestortes, Vall Fosca and the Carlit lakes just over the French border; canyon walks in Ordesa and the Cares."
+   },
+   {
+    "label": "Summits",
+    "text": "Pica d'Estats, Puigmal, Pedraforca, Monte Perdido (experienced hikers), Mulhacén."
+   },
+   {
+    "label": "Via ferrata",
+    "text": "Sorrosal waterfall in Broto (beginner-friendly), Foradada del Toscar in Ribagorza and many routes around Montsec."
+   },
+   {
+    "label": "Gorges & catwalks",
+    "text": "Mont-rebei and the Montfalcó stairs; the Gorges de la Carança in France."
+   },
+   {
+    "label": "Scenic drives",
+    "text": "Mountain passes such as the Bonaigua (Val d'Aran) and the Port de Cabús track from Andorra into Catalonia's Tor valley (4x4 on the Spanish side)."
+   },
+   {
+    "label": "Wildlife",
+    "text": "Vultures at Riglos and Mont-rebei; marmots and chamois above the tree line; the red deer rut in the Pre-Pyrenees (Boumort) in September–October."
+   }
+  ],
+  "routes": [
+   {
+    "title": "3 days – Catalan Pyrenees",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Pedraforca (base walk) → Coll de Nargó / Organyà"
+     },
+     {
+      "day": "Day 2",
+      "text": "Vall Fosca → Estany Gento lakes"
+     },
+     {
+      "day": "Day 3",
+      "text": "Aigüestortes (Sant Maurici side) → back to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "5 days – Lakes, gorges & Ordesa",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Congost de Mont-rebei"
+     },
+     {
+      "day": "Day 2",
+      "text": "Vall Fosca & Estany Gento"
+     },
+     {
+      "day": "Day 3",
+      "text": "Aigüestortes → Val d'Aran"
+     },
+     {
+      "day": "Day 4",
+      "text": "Benasque valley → Aigualluts"
+     },
+     {
+      "day": "Day 5",
+      "text": "Ordesa (Cola de Caballo) → return via Mallos de Riglos or straight to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "Part of a 2-week trip – The northern arc",
+    "days": [
+     {
+      "day": "Days 1–5",
+      "text": "Catalan & Aragonese Pyrenees as above"
+     },
+     {
+      "day": "Day 6",
+      "text": "Gavarnie (France) or Riglos"
+     },
+     {
+      "day": "Days 7–8",
+      "text": "Navarra & the Basque coast (see The Green North)"
+     },
+     {
+      "day": "Days 9–10",
+      "text": "Picos de Europa – Ruta del Cares, Naranjo de Bulnes viewpoint"
+     },
+     {
+      "day": "Days 11–14",
+      "text": "Asturias coast or the slow drive back through the Dry Interior"
+     }
+    ]
+   }
+  ],
+  "months": [
+   "avoid",
+   "avoid",
+   "avoid",
+   "good",
+   "good",
+   "best",
+   "best",
+   "best",
+   "best",
+   "good",
+   "avoid",
+   "avoid"
+  ],
+  "when_notes": [
+   {
+    "label": "Late June – September",
+    "text": "high trails snow-free, lakes at their best, busiest in August."
+   },
+   {
+    "label": "September – early October",
+    "text": "our favourite window: stable weather, fewer people, autumn colour."
+   },
+   {
+    "label": "Winter & spring",
+    "text": "high passes and lake trails are snowbound; lower areas like Riglos and Mont-rebei are great from October to May."
+   }
+  ],
+  "road": [
+   {
+    "label": "Mountain roads are slow.",
+    "text": "Plan on 40–50 km/h average once you leave the highway.",
+    "sub": []
+   },
+   {
+    "label": "Check access before you go",
+    "text": "",
+    "sub": [
+     "*Pica d'Estats (Vall Ferrera):* the car parks at the head of the valley work with paid reservations in high season.",
+     "*Picos de Europa – Lagos de Covadonga:* on high-season dates the road is closed to private cars all day and you take the bus from Cangas de Onís.",
+     "*Sierra Nevada:* the old high road between Hoya del Portillo and Hoya de la Mora is closed to traffic; in summer a guided park minibus runs from Capileira (booking needed).",
+     "*Lac des Bouillouses (France):* road closed to cars during the day in July–August; shuttle from Pla de Barrès."
+    ]
+   },
+   {
+    "label": "Dirt tracks",
+    "text": "in Catalonia, driving is only allowed on open roads and authorised tracks; narrow tracks and off-road driving are prohibited. Many valley-head tracks have barriers.",
+    "sub": []
+   },
+   {
+    "label": "Fuel & signal",
+    "text": "fill up in the main valley towns (Sort, Vielha, Aínsa, Benasque). Phone coverage disappears in many upper valleys; download offline maps.",
+    "sub": []
+   },
+   {
+    "label": "Weather",
+    "text": "afternoon thunderstorms are common in July–August. Start early.",
+    "sub": []
+   }
+  ],
+  "faq": [
+   {
+    "q": "When is the best time to visit the Spanish Pyrenees?",
+    "a": "From late June to early October, when the high trails are free of snow. September is ideal: stable weather, fewer visitors and the first autumn colours."
+   },
+   {
+    "q": "Do I need a 4x4 in the Pyrenees?",
+    "a": "Not for the main valleys and trailheads, which are paved. A higher, capable car makes the gravel access roads and forest tracks easier and opens up more remote starting points."
+   },
+   {
+    "q": "Can you drive to the Lagos de Covadonga in the Picos de Europa?",
+    "a": "Only outside the regulated dates. In high season the road is closed to private cars and a shuttle bus runs from Cangas de Onís. Check the official calendar before you go."
+   },
+   {
+    "q": "How many days do I need for the Pyrenees?",
+    "a": "Three days is enough for a taste of the Catalan side. Five to seven days lets you combine Catalonia, Aragon (Ordesa, Benasque) and the French Gavarnie."
+   },
+   {
+    "q": "What is the highest mountain in the Pyrenees?",
+    "a": "Aneto (3,404 m) in the Benasque valley, Aragon. The highest peak in Catalonia is the Pica d'Estats (3,143 m)."
+   }
+  ],
+  "cta": {
+   "heading": "The mountains are waiting.",
+   "sub": "Pick up your car in Barcelona and be at the first lake by lunchtime. You just drive."
+  }
+ },
+ {
+  "slug": "green-north",
+  "name": "The Green North",
+  "number": "02",
+  "title": "Northern Spain Road Trip: Asturias, Galicia & Basque Coast",
+  "description": "Atlantic Spain by car: beech forests, sea cliffs and wild beaches from Navarra's Irati forest to Asturias and Galicia's Costa da Morte. Seasons and tips.",
+  "h1": "The Green North: A Road Trip Through Atlantic Spain",
+  "hook": "Atlantic Spain: rain, beech forests and wild cliffs.",
+  "best_season": "May – September",
+  "hero": {
+   "map_focus": "Northern coast, Galicia to Navarra",
+   "highlight": [
+    {
+     "name": "Galicia",
+     "box": [
+      42.0,
+      43.8,
+      -9.3,
+      -6.9
+     ]
+    },
+    {
+     "name": "Asturias & Cantabria",
+     "box": [
+      42.9,
+      43.7,
+      -7.0,
+      -3.2
+     ]
+    },
+    {
+     "name": "Basque Country & Navarra",
+     "box": [
+      42.6,
+      43.5,
+      -3.2,
+      -1.0
+     ]
+    }
+   ]
+  },
+  "cta_primary": "Sign up for your dream trip",
+  "intro": [
+   "Cross the mountains from the dry heart of Spain and everything turns green. The Atlantic north gets the rain the rest of the country doesn't, and it shows: dense beech forests, emerald valleys full of grazing cows, fishing villages stacked against the hills and a coastline that the ocean has carved into arches, caves and islands.",
+   "From the Basque Country to Galicia, this is a road trip of contrasts packed into a narrow strip. In one day you can walk through one of Europe's largest beech-fir forests, drive to a hermitage on a rock in the sea and end with seafood in a harbour town. Further west, Galicia feels like the edge of the world – the Costa da Morte was long thought to be exactly that.",
+   "It is the furthest landscape from Barcelona, which is why it works best as the backbone of a two-week trip: cross the Pyrenees, follow the coast west and come back through the interior."
+  ],
+  "highlights": [
+   {
+    "n": 1,
+    "name": "Selva de Irati",
+    "area": "Navarra Pyrenees",
+    "best": "May–Jun, Oct",
+    "best_for": [
+     "forest walks",
+     "autumn colour"
+    ],
+    "text": "One of the largest beech-fir forests in Europe, with trails to the Irabia reservoir. In October the whole forest turns copper and gold.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 2,
+    "name": "Baztan valley & Elizondo",
+    "area": "Navarra",
+    "best": "May–Oct",
+    "best_for": [
+     "villages",
+     "hiking"
+    ],
+    "text": "Green hills, stone farmhouses and the river town of Elizondo, gateway to the rocky ridges of Monte Iparla on the French border.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 3,
+    "name": "San Juan de Gaztelugatxe",
+    "area": "Bizkaia coast",
+    "best": "spring & autumn",
+    "best_for": [
+     "views",
+     "short walk"
+    ],
+    "text": "A tiny hermitage on a rocky islet, reached by a stone bridge and 241 steps. Known worldwide as Dragonstone from Game of Thrones.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 4,
+    "name": "Salto del Nervión",
+    "area": "Burgos / Álava border",
+    "best": "winter & spring (after rain)",
+    "best_for": [
+     "views"
+    ],
+    "text": "A cliff-edge viewpoint over one of Spain's highest waterfalls, at its most powerful after rain.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 5,
+    "name": "Orbaneja del Castillo",
+    "area": "Burgos",
+    "best": "Apr–Oct",
+    "best_for": [
+     "village",
+     "waterfall"
+    ],
+    "text": "A village wedged into a limestone canyon, with a waterfall running right through the middle of it.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 6,
+    "name": "Ojo Guareña",
+    "area": "Burgos",
+    "best": "all year",
+    "best_for": [
+     "caves"
+    ],
+    "text": "One of the longest cave systems in Spain, with a hermitage built into the rock at its entrance.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 7,
+    "name": "Cudillero",
+    "area": "Asturias coast",
+    "best": "May–Sep",
+    "best_for": [
+     "village",
+     "coast"
+    ],
+    "text": "A fishing village of coloured houses climbing up a steep amphitheatre around the harbour.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 8,
+    "name": "Cabo Busto & the Asturian cliffs",
+    "area": "Asturias coast",
+    "best": "May–Sep",
+    "best_for": [
+     "coastal walks",
+     "views"
+    ],
+    "text": "A lighthouse on high green cliffs, on a stretch of coast with coves and sea stacks.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 9,
+    "name": "As Catedrais beach",
+    "area": "Ribadeo, Lugo",
+    "best": "low tide, spring–autumn",
+    "best_for": [
+     "views"
+    ],
+    "text": "Natural rock arches up to 30 metres high that look like cathedral buttresses. Walk the beach at low tide, see it from the cliffs at high tide.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 10,
+    "name": "Ribeira Sacra & the Sil Canyon",
+    "area": "Lugo / Ourense",
+    "best": "May–Oct",
+    "best_for": [
+     "views",
+     "boat trip",
+     "wine"
+    ],
+    "text": "Terraced vineyards on impossibly steep canyon walls, Romanesque monasteries and viewpoints high above the river.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 11,
+    "name": "Las Médulas",
+    "area": "El Bierzo, León",
+    "best": "Apr–Jun, Sep–Nov",
+    "best_for": [
+     "hiking",
+     "views"
+    ],
+    "text": "Red peaks and tunnels left by the largest gold mine of the Roman Empire, now a UNESCO World Heritage site.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 12,
+    "name": "Costa da Morte",
+    "area": "A Coruña",
+    "best": "May–Sep",
+    "best_for": [
+     "coastal drive",
+     "lighthouses"
+    ],
+    "text": "The \"Coast of Death\", named for its shipwrecks: granite capes, lighthouses and huge empty beaches facing the open Atlantic, ending at Fisterra.",
+    "link": null,
+    "image": null
+   }
+  ],
+  "activities": [
+   {
+    "label": "Forest walks",
+    "text": "Irati in autumn, the beech woods of Baztan."
+   },
+   {
+    "label": "Coastal hikes",
+    "text": "Clifftop trails around Cabo Busto, Gaztelugatxe and the Costa da Morte."
+   },
+   {
+    "label": "Beaches & tides",
+    "text": "As Catedrais at low tide; wild Atlantic beaches in Galicia (cold water, big waves)."
+   },
+   {
+    "label": "Surfing",
+    "text": "The Basque and Cantabrian coasts have consistent Atlantic swell."
+   },
+   {
+    "label": "Caves & canyons",
+    "text": "Ojo Guareña, the Orbaneja canyon, the Sil gorge by boat."
+   },
+   {
+    "label": "Food stops",
+    "text": "Pintxos in the Basque Country, cider houses in Asturias, seafood and Ribeira Sacra wine in Galicia."
+   }
+  ],
+  "routes": [
+   {
+    "title": "3 days – Navarra & the Basque coast",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Selva de Irati"
+     },
+     {
+      "day": "Day 2",
+      "text": "Baztan valley & Elizondo → Basque coast"
+     },
+     {
+      "day": "Day 3",
+      "text": "San Juan de Gaztelugatxe → back towards Barcelona (or continue west)"
+     }
+    ]
+   },
+   {
+    "title": "5 days – Forests, canyons & coast",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Selva de Irati"
+     },
+     {
+      "day": "Day 2",
+      "text": "Baztan → Gaztelugatxe"
+     },
+     {
+      "day": "Day 3",
+      "text": "Salto del Nervión → Orbaneja del Castillo"
+     },
+     {
+      "day": "Day 4",
+      "text": "Ojo Guareña → Picos de Europa"
+     },
+     {
+      "day": "Day 5",
+      "text": "Asturias coast – Cudillero"
+     }
+    ]
+   },
+   {
+    "title": "Part of a 2-week trip – The Atlantic loop",
+    "days": [
+     {
+      "day": "Days 1–2",
+      "text": "Barcelona → Pyrenees → Selva de Irati"
+     },
+     {
+      "day": "Days 3–4",
+      "text": "Basque coast & Burgos canyons"
+     },
+     {
+      "day": "Days 5–6",
+      "text": "Picos de Europa (see The High Mountains)"
+     },
+     {
+      "day": "Days 7–9",
+      "text": "Asturias coast → As Catedrais → Costa da Morte"
+     },
+     {
+      "day": "Days 10–11",
+      "text": "Ribeira Sacra & Las Médulas"
+     },
+     {
+      "day": "Days 12–14",
+      "text": "Back east through the Dry Interior (Albarracín, Teruel) to Barcelona"
+     }
+    ]
+   }
+  ],
+  "months": [
+   "avoid",
+   "avoid",
+   "good",
+   "good",
+   "best",
+   "best",
+   "best",
+   "best",
+   "best",
+   "good",
+   "avoid",
+   "avoid"
+  ],
+  "when_notes": [
+   {
+    "label": "May – September",
+    "text": "longest days and the most stable weather. July–August are busiest on the coast."
+   },
+   {
+    "label": "October",
+    "text": "quieter, and peak autumn colour in Irati and the inland valleys."
+   },
+   {
+    "label": "Year-round",
+    "text": "expect rain at any time. That's why it's green. Pack a proper jacket."
+   }
+  ],
+  "road": [
+   {
+    "label": "Distances are long.",
+    "text": "Barcelona to Galicia is a full day's drive. Build the north into a loop rather than an out-and-back.",
+    "sub": []
+   },
+   {
+    "label": "Check access before you go",
+    "text": "",
+    "sub": [
+     "*As Catedrais:* free reservation needed during Holy Week and from 1 July to 30 September.",
+     "*San Juan de Gaztelugatxe:* free online ticket required on controlled-access days (high season); other days are open access.",
+     "*Selva de Irati:* the main access car parks charge a fee in high season.",
+     "*Lagos de Covadonga (Picos):* closed to private cars on high-season dates; take the bus from Cangas de Onís."
+    ]
+   },
+   {
+    "label": "Roads",
+    "text": "coastal roads are narrow and winding; allow extra time between villages.",
+    "sub": []
+   },
+   {
+    "label": "Tides",
+    "text": "check tide tables for As Catedrais and other beaches; some are only walkable at low tide.",
+    "sub": []
+   }
+  ],
+  "faq": [
+   {
+    "q": "When is the best time for a road trip in Northern Spain?",
+    "a": "May to September for the best weather and long days. October is quieter and brings autumn colour to the forests, but expect more rain."
+   },
+   {
+    "q": "How many days do you need for Northern Spain?",
+    "a": "At least a week to see the Basque coast, Picos de Europa and Asturias. Ten to fourteen days lets you continue into Galicia and loop back through the interior."
+   },
+   {
+    "q": "Do you need a reservation for As Catedrais beach?",
+    "a": "Yes, during Holy Week and from 1 July to 30 September. The reservation is free. Outside those periods you can visit without one."
+   },
+   {
+    "q": "Do you need a ticket for San Juan de Gaztelugatxe?",
+    "a": "On controlled-access days in high season you need a free online ticket with a time slot. On other days access is free without booking."
+   },
+   {
+    "q": "Does it rain a lot in Northern Spain?",
+    "a": "Yes, more than anywhere else in Spain, which is why it's so green. Summer is the driest period, but bring rain gear year-round."
+   }
+  ],
+  "cta": {
+   "heading": "Head for the green edge of Spain.",
+   "sub": "Forests, cliffs and wild Atlantic beaches – one long, beautiful drive. You just drive."
+  }
+ },
+ {
+  "slug": "dry-interior",
+  "name": "The Dry Interior",
+  "number": "03",
+  "title": "Spain's Deserts & Red Canyons by Car | Frontier Trails",
+  "description": "Badlands, desert canyons and empty roads: Bardenas Reales, Monegros, Teruel, Cuenca, Gorafe, Tabernas and Cabo de Gata. Seasons and driving tips.",
+  "h1": "The Dry Interior: Spain's Deserts, Badlands & Red Canyons",
+  "hook": "Ghost villages, red canyons, no one around.",
+  "best_season": "October – May (avoid July–August)",
+  "hero": {
+   "map_focus": "Ebro valley, Iberian range and the south-east",
+   "highlight": [
+    {
+     "name": "Bardenas & Monegros (Ebro valley)",
+     "box": [
+      41.4,
+      42.4,
+      -1.8,
+      0.2
+     ]
+    },
+    {
+     "name": "Teruel, Cuenca & Guadalajara",
+     "box": [
+      39.8,
+      41.4,
+      -3.6,
+      -0.8
+     ]
+    },
+    {
+     "name": "Granada, Almería & Murcia drylands",
+     "box": [
+      36.7,
+      38.3,
+      -3.2,
+      -1.0
+     ]
+    }
+   ]
+  },
+  "cta_primary": "Sign up for your dream trip",
+  "intro": [
+   "Somewhere between the Pyrenees and the Mediterranean, Spain empties out. The high plateau of the interior is one of the least populated areas in Europe: long straight roads, abandoned villages on the hilltops and almost no traffic. Push further and the land dries into something you don't expect in Europe at all – clay badlands, white desert plains, red canyons and volcanic coast.",
+   "The Dry Interior brings together two sides of the same Spain. In the north, the Bardenas Reales and Monegros deserts lie in the Ebro valley, a few hours from Barcelona. In the middle, Teruel and Cuenca hide medieval towns, turquoise lakes and rust-red gorges. And in the south-east, Granada, Almería and Murcia hold some of the driest landscapes in Europe, from the badlands of Gorafe to the spaghetti-western sets of Tabernas.",
+   "This is road-trip country in its purest form: the drive is the point. Low sun, empty horizons and the feeling of having a whole landscape to yourself."
+  ],
+  "highlights": [
+   {
+    "n": 1,
+    "name": "Bardenas Reales",
+    "area": "Navarra",
+    "best": "Oct–May",
+    "best_for": [
+     "driving",
+     "views",
+     "photography"
+    ],
+    "text": "A semi-desert of eroded clay towers and plateaus, protected as a UNESCO Biosphere Reserve. A signposted loop of about 55 km leads past its icon, the clay chimney of Castildetierra.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 2,
+    "name": "Monegros",
+    "area": "Huesca / Zaragoza",
+    "best": "Oct–Apr",
+    "best_for": [
+     "driving",
+     "solitude"
+    ],
+    "text": "Steppe and gypsum hills that feel more North African than European, crossed by long, empty roads and farm tracks.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 3,
+    "name": "Sierra de Armantes",
+    "area": "Calatayud (Zaragoza)",
+    "best": "Oct–May",
+    "best_for": [
+     "hiking",
+     "photography"
+    ],
+    "text": "Red and ochre badlands carved into towers and ravines, just outside Calatayud.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 4,
+    "name": "Albarracín",
+    "area": "Teruel",
+    "best": "Apr–Jun, Sep–Nov",
+    "best_for": [
+     "village",
+     "hiking",
+     "bouldering"
+    ],
+    "text": "A pink medieval town on a rock above a river gorge, surrounded by pine forest full of red sandstone boulders.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 5,
+    "name": "Cañón Rojo (Rambla Barrachina)",
+    "area": "near Teruel",
+    "best": "Oct–May",
+    "best_for": [
+     "short hike",
+     "photography"
+    ],
+    "text": "A narrow canyon of blood-red earth walls just outside Teruel, one of the most surreal walks in the interior.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 6,
+    "name": "Cañada del Hoyo lakes",
+    "area": "Serranía de Cuenca",
+    "best": "Apr–Jun, Sep–Oct",
+    "best_for": [
+     "walking",
+     "views"
+    ],
+    "text": "Round karst lakes sunk into the forest, each with its own shade of blue, green or white.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 7,
+    "name": "Nacimiento del Río Cuervo",
+    "area": "Serranía de Cuenca",
+    "best": "spring (after snowmelt)",
+    "best_for": [
+     "short walk"
+    ],
+    "text": "The source of a river spilling over mossy tufa ledges in a cascade of small waterfalls.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 8,
+    "name": "Las Cárcavas",
+    "area": "Guadalajara",
+    "best": "Oct–May",
+    "best_for": [
+     "views",
+     "photography"
+    ],
+    "text": "Dark, deeply folded badlands of ridges and gullies, especially striking at sunset.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 9,
+    "name": "Barrancos de Gebas",
+    "area": "Murcia",
+    "best": "Nov–Apr",
+    "best_for": [
+     "viewpoint",
+     "short hikes"
+    ],
+    "text": "A \"lunar\" landscape of pale marl ridges and gullies at the foot of the Sierra Espuña.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 10,
+    "name": "Desierto de Gorafe",
+    "area": "Granada",
+    "best": "Oct–May",
+    "best_for": [
+     "driving",
+     "hiking",
+     "history"
+    ],
+    "text": "Red and white badlands cut by canyons, scattered with hundreds of prehistoric dolmens.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 11,
+    "name": "Tabernas Desert",
+    "area": "Almería",
+    "best": "Oct–Apr",
+    "best_for": [
+     "driving",
+     "film history"
+    ],
+    "text": "Dry riverbeds and bare hills where dozens of spaghetti westerns were filmed. Some of the old film sets still stand.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 12,
+    "name": "Cabo de Gata",
+    "area": "Almería",
+    "best": "Mar–Jun, Sep–Nov",
+    "best_for": [
+     "coast",
+     "snorkelling",
+     "hiking"
+    ],
+    "text": "A volcanic coastline where the desert meets the sea: dunes, black rock, salt flats with flamingos and some of the wildest beaches on the Mediterranean.",
+    "link": null,
+    "image": null
+   }
+  ],
+  "activities": [
+   {
+    "label": "Desert driving",
+    "text": "Bardenas loop, Monegros roads, Tabernas and Gorafe backroads."
+   },
+   {
+    "label": "Canyon hikes",
+    "text": "Cañón Rojo, Sierra de Armantes, the gorges around Albarracín."
+   },
+   {
+    "label": "Photography",
+    "text": "Low winter light on badlands; sunsets at Las Cárcavas and Gorafe."
+   },
+   {
+    "label": "Stargazing",
+    "text": "The emptiest parts of the interior and Almería have some of the darkest skies in Spain."
+   },
+   {
+    "label": "Bouldering & climbing",
+    "text": "The sandstone boulders of Albarracín are internationally known."
+   },
+   {
+    "label": "Swimming & snorkelling",
+    "text": "Clear water and volcanic coves at Cabo de Gata."
+   },
+   {
+    "label": "History",
+    "text": "Medieval Albarracín, Gorafe's dolmens, the film sets of Tabernas."
+   }
+  ],
+  "routes": [
+   {
+    "title": "3 days – Northern deserts",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Monegros"
+     },
+     {
+      "day": "Day 2",
+      "text": "Bardenas Reales (full loop)"
+     },
+     {
+      "day": "Day 3",
+      "text": "Sierra de Armantes → back to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "5 days – Red canyons of the interior",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Monegros → Albarracín"
+     },
+     {
+      "day": "Day 2",
+      "text": "Albarracín & surroundings"
+     },
+     {
+      "day": "Day 3",
+      "text": "Cañón Rojo → Serranía de Cuenca"
+     },
+     {
+      "day": "Day 4",
+      "text": "Cañada del Hoyo lakes → Nacimiento del Río Cuervo"
+     },
+     {
+      "day": "Day 5",
+      "text": "Back via Teruel to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "Part of a 2-week trip – From the Ebro to Almería",
+    "days": [
+     {
+      "day": "Days 1–2",
+      "text": "Monegros & Bardenas Reales"
+     },
+     {
+      "day": "Days 3–4",
+      "text": "Sierra de Armantes → Albarracín"
+     },
+     {
+      "day": "Days 5–6",
+      "text": "Teruel & the Serranía de Cuenca"
+     },
+     {
+      "day": "Days 7–8",
+      "text": "Barrancos de Gebas → Gorafe"
+     },
+     {
+      "day": "Days 9–11",
+      "text": "Tabernas & Cabo de Gata"
+     },
+     {
+      "day": "Days 12–14",
+      "text": "Back north along the coast (see The Mediterranean)"
+     }
+    ]
+   }
+  ],
+  "months": [
+   "good",
+   "good",
+   "best",
+   "best",
+   "best",
+   "good",
+   "avoid",
+   "avoid",
+   "good",
+   "best",
+   "best",
+   "good"
+  ],
+  "when_notes": [
+   {
+    "label": "October – May",
+    "text": "the season for the drylands. Mild days, low light, empty roads."
+   },
+   {
+    "label": "Spring",
+    "text": "green tints on the badlands and full rivers in Cuenca."
+   },
+   {
+    "label": "Summer",
+    "text": "temperatures regularly pass 40 °C in Monegros, Bardenas and Almería. Avoid July–August, or stick to early mornings."
+   },
+   {
+    "label": "Winter",
+    "text": "sunny but cold at night on the high plateau (Teruel and Cuenca can drop below zero)."
+   }
+  ],
+  "road": [
+   {
+    "label": "Empty means empty.",
+    "text": "Fuel stations can be 50+ km apart. Fill up whenever you can and carry water.",
+    "sub": []
+   },
+   {
+    "label": "Check access before you go",
+    "text": "",
+    "sub": [
+     "*Bardenas Reales:* open from 8:00 until one hour before sunset. Vehicles must stay on the marked routes, with speed limits on the tracks. Parts of the park close to visitors during the bird-nesting season, roughly February to August.",
+     "*Cabo de Gata (Genoveses & Mónsul beaches):* car access is restricted in summer; a shuttle bus runs from San José."
+    ]
+   },
+   {
+    "label": "Tracks",
+    "text": "many highlights are reached by gravel roads. Drive slowly, avoid tracks after heavy rain (clay turns to mud), and respect \"no entry\" signs; much of this land is private farmland.",
+    "sub": []
+   },
+   {
+    "label": "Heat",
+    "text": "no shade in the badlands. Bring a hat, sunscreen and more water than you think.",
+    "sub": []
+   }
+  ],
+  "faq": [
+   {
+    "q": "Is there a desert in Spain?",
+    "a": "Yes. Spain has several semi-arid deserts, including the Bardenas Reales in Navarra, Monegros in Aragon, the Tabernas Desert in Almería and the badlands of Gorafe in Granada."
+   },
+   {
+    "q": "When is the best time to visit Spain's deserts?",
+    "a": "From October to May. Summer temperatures often exceed 40 °C, which makes hiking and exploring uncomfortable and unsafe."
+   },
+   {
+    "q": "Can you drive through the Bardenas Reales?",
+    "a": "Yes, on the marked routes, including a signposted loop of about 55 km. The park is open from 8:00 until an hour before sunset; leaving the marked tracks is not allowed."
+   },
+   {
+    "q": "Do you need a 4x4 in the Bardenas Reales or Tabernas?",
+    "a": "The main routes are gravel roads that a normal car can manage in dry weather. A higher, capable car is more comfortable and handles rougher tracks and post-rain conditions better."
+   },
+   {
+    "q": "What is there to see in Teruel?",
+    "a": "The medieval town of Albarracín, the red Cañón Rojo canyon, the Matarraña region with El Parrizal gorge, and endless empty roads across the high plateau."
+   }
+  ],
+  "cta": {
+   "heading": "Find the emptiest roads in Europe.",
+   "sub": "Badlands, canyons and horizons you'll have to yourself. You just drive."
+  }
+ },
+ {
+  "slug": "mediterranean",
+  "name": "The Mediterranean",
+  "number": "04",
+  "title": "Mediterranean Spain Road Trip: Sierras, Gorges & Coves",
+  "description": "From the Costa Brava to Andalusia by car: volcanoes, cliff villages, river gorges and hidden coves. Best seasons and tips for Mediterranean Spain.",
+  "h1": "The Mediterranean: Sierras, River Gorges & Hidden Coves from Catalonia to Andalusia",
+  "hook": "Sun-baked sierras, river gorges and hidden coves.",
+  "best_season": "All year (best March–June and September–November)",
+  "hero": {
+   "map_focus": "East and south coast, Girona to Málaga",
+   "highlight": [
+    {
+     "name": "Catalonia",
+     "box": [
+      40.5,
+      42.5,
+      0.4,
+      3.3
+     ]
+    },
+    {
+     "name": "Valencia & Alicante",
+     "box": [
+      38.4,
+      40.5,
+      -1.0,
+      0.4
+     ]
+    },
+    {
+     "name": "Andalusia (Ronda, Málaga, Cazorla)",
+     "box": [
+      36.6,
+      38.2,
+      -5.4,
+      -2.6
+     ]
+    }
+   ]
+  },
+  "cta_primary": "Sign up for your dream trip",
+  "intro": [
+   "Behind Spain's famous coastline lies a second Mediterranean that most visitors never see. Limestone sierras rise straight out of the sea, rivers have cut swimmable gorges into the mountains, and villages cling to cliffs, volcanoes and canyon edges. It's all just a short drive from the beach towns.",
+   "Within two hours of Barcelona you can stand on the easternmost point of mainland Spain at Cap de Creus, walk into an extinct volcano in the Garrotxa or climb a via ferrata on Montserrat. Head south and the Ebro Delta, the gorges of Els Ports and Valencia's thermal rivers follow, all the way to the white villages, canyons and mountain parks of Andalusia.",
+   "The Mediterranean is the landscape you can do almost any time of year: spring and autumn are perfect, and even in winter the sun is out."
+  ],
+  "highlights": [
+   {
+    "n": 1,
+    "name": "Cap de Creus & Cadaqués",
+    "area": "Costa Brava (Girona)",
+    "best": "Apr–Jun, Sep–Oct",
+    "best_for": [
+     "coastal hikes",
+     "swimming"
+    ],
+    "text": "The easternmost point of mainland Spain: wind-sculpted rock, hidden coves and the whitewashed village of Cadaqués.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 2,
+    "name": "Garrotxa Volcanic Zone",
+    "area": "Olot (Girona)",
+    "best": "Mar–Jun, Sep–Nov",
+    "best_for": [
+     "hiking",
+     "forest"
+    ],
+    "text": "Dozens of extinct volcanic cones under beech forest. Walk into the Santa Margarida crater, with a small chapel in the middle, or up the Croscat volcano.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 3,
+    "name": "Sant Aniol d'Aguja & Alta Garrotxa",
+    "area": "Girona",
+    "best": "May–Oct",
+    "best_for": [
+     "hiking",
+     "river swimming"
+    ],
+    "text": "A wild river valley with turquoise pools, Romanesque bridges and a hermitage deep in the mountains.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 4,
+    "name": "Cingles de Tavertet",
+    "area": "Osona (Barcelona)",
+    "best": "all year",
+    "best_for": [
+     "views",
+     "short hikes"
+    ],
+    "text": "A stone village on the edge of sheer cliffs above the Sau reservoir, with waterfalls and viewpoints along the rim.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 5,
+    "name": "Montserrat",
+    "area": "Barcelona",
+    "best": "all year",
+    "best_for": [
+     "via ferrata",
+     "hiking",
+     "climbing"
+    ],
+    "text": "A saw-toothed massif of conglomerate pinnacles with a monastery halfway up. Hike the ridges or try the Canal de les Dames via ferrata.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 6,
+    "name": "Siurana & the Priorat",
+    "area": "Tarragona",
+    "best": "Oct–May",
+    "best_for": [
+     "views",
+     "climbing",
+     "villages"
+    ],
+    "text": "A tiny village on a cliff above a turquoise reservoir, at the heart of one of the world's top sport-climbing regions. Wine country all around.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 7,
+    "name": "Els Ports & the Estrets d'Arnes",
+    "area": "Tarragona / Teruel",
+    "best": "May–Oct",
+    "best_for": [
+     "gorge hike",
+     "swimming"
+    ],
+    "text": "Rugged limestone mountains with a narrow rock-walled gorge and the Toll Blau pool. Nearby, the warm natural pool of Fontcalda.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 8,
+    "name": "Ebro Delta",
+    "area": "Tarragona",
+    "best": "Apr–Oct",
+    "best_for": [
+     "wildlife",
+     "cycling",
+     "beaches"
+    ],
+    "text": "Flat rice fields, lagoons full of flamingos and wild sandbar beaches where the Ebro meets the sea.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 9,
+    "name": "Montanejos & the Fuente de los Baños",
+    "area": "Castellón",
+    "best": "May–Oct",
+    "best_for": [
+     "river swimming",
+     "hiking"
+    ],
+    "text": "A river pool with water at a steady mild temperature year-round, in a gorge with climbing walls and trails.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 10,
+    "name": "Font dels Xorros & the Serra de Bernia",
+    "area": "Alicante",
+    "best": "Oct–May",
+    "best_for": [
+     "hiking",
+     "views"
+    ],
+    "text": "A spring tumbling out of the rock below the Bernia ridge, with a loop past an old fort and views down to the Costa Blanca.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 11,
+    "name": "Ronda & Setenil de las Bodegas",
+    "area": "Málaga / Cádiz",
+    "best": "Mar–Jun, Sep–Nov",
+    "best_for": [
+     "villages",
+     "views"
+    ],
+    "text": "Ronda's bridge over a 100-metre gorge, and Setenil, where houses are built into the overhang of a river cliff.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 12,
+    "name": "Caminito del Rey",
+    "area": "Málaga",
+    "best": "Oct–May",
+    "best_for": [
+     "hiking",
+     "gorge walk"
+    ],
+    "text": "A walkway bolted to the walls of the Gaitanes gorge, once called the most dangerous path in the world and now one of Spain's most popular walks. Book tickets well in advance.",
+    "link": null,
+    "image": null
+   },
+   {
+    "n": 13,
+    "name": "Sierras de Cazorla, Segura y Las Villas",
+    "area": "Jaén",
+    "best": "Mar–Jun, Sep–Nov",
+    "best_for": [
+     "hiking",
+     "wildlife",
+     "rivers"
+    ],
+    "text": "Spain's largest protected natural area: pine-covered mountains, the source of the Guadalquivir and some of the best wildlife watching in the south.",
+    "link": null,
+    "image": null
+   }
+  ],
+  "activities": [
+   {
+    "label": "Coastal hikes & coves",
+    "text": "Cap de Creus and the Costa Brava coast paths."
+   },
+   {
+    "label": "Wild swimming",
+    "text": "Sant Aniol, Toll Blau, Fontcalda, Montanejos."
+   },
+   {
+    "label": "Via ferrata",
+    "text": "Montserrat, the Baumes Corcades near Centelles, the coastal Cala del Molí."
+   },
+   {
+    "label": "Climbing",
+    "text": "Siurana, Margalef and Montserrat in Catalonia; El Chorro near the Caminito."
+   },
+   {
+    "label": "Volcanoes & forests",
+    "text": "The craters and beech woods of the Garrotxa."
+   },
+   {
+    "label": "Gorge walks",
+    "text": "Estrets d'Arnes, Caminito del Rey, Ronda's gorge."
+   },
+   {
+    "label": "Wildlife",
+    "text": "Flamingos in the Ebro Delta; ibex and vultures in Els Ports and Cazorla."
+   },
+   {
+    "label": "Villages & food",
+    "text": "Priorat wine, Cadaqués seafood, the white villages of Andalusia."
+   }
+  ],
+  "routes": [
+   {
+    "title": "3 days – Girona's volcanoes & coast",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Tavertet cliffs → Garrotxa Volcanic Zone"
+     },
+     {
+      "day": "Day 2",
+      "text": "Sant Aniol d'Aguja (river hike) → Besalú"
+     },
+     {
+      "day": "Day 3",
+      "text": "Cap de Creus & Cadaqués → back to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "5 days – Southern Catalonia & Valencia",
+    "days": [
+     {
+      "day": "Day 1",
+      "text": "Barcelona → Montserrat → Siurana"
+     },
+     {
+      "day": "Day 2",
+      "text": "Priorat → Els Ports (Estrets d'Arnes, Fontcalda)"
+     },
+     {
+      "day": "Day 3",
+      "text": "Ebro Delta"
+     },
+     {
+      "day": "Day 4",
+      "text": "Montanejos & Fuente de los Baños"
+     },
+     {
+      "day": "Day 5",
+      "text": "Back up the coast to Barcelona"
+     }
+    ]
+   },
+   {
+    "title": "Part of a 2-week trip – Barcelona to Andalusia",
+    "days": [
+     {
+      "day": "Days 1–3",
+      "text": "Montserrat, Siurana & the Priorat, Els Ports"
+     },
+     {
+      "day": "Days 4–5",
+      "text": "Ebro Delta → Montanejos"
+     },
+     {
+      "day": "Days 6–7",
+      "text": "Serra de Bernia & Font dels Xorros"
+     },
+     {
+      "day": "Days 8–9",
+      "text": "Sierras de Cazorla"
+     },
+     {
+      "day": "Days 10–12",
+      "text": "Caminito del Rey → Ronda & Setenil"
+     },
+     {
+      "day": "Days 13–14",
+      "text": "Return via the Dry Interior (Gorafe, Tabernas) or drop off further south"
+     }
+    ]
+   }
+  ],
+  "months": [
+   "good",
+   "good",
+   "best",
+   "best",
+   "best",
+   "good",
+   "good",
+   "good",
+   "best",
+   "best",
+   "best",
+   "good"
+  ],
+  "when_notes": [
+   {
+    "label": "March – June & September – November",
+    "text": "ideal for hiking, gorge walks and climbing."
+   },
+   {
+    "label": "July – August",
+    "text": "great for swimming spots and the coast, but hot inland (Andalusia can exceed 40 °C) and busy at popular pools. Start early."
+   },
+   {
+    "label": "Winter",
+    "text": "mild and sunny on the coast and in the south, which makes this the best landscape for a winter trip."
+   }
+  ],
+  "road": [
+   {
+    "label": "Easy driving, tricky parking.",
+    "text": "Most highlights are on paved roads, but popular spots (Cadaqués, Sant Aniol, Montanejos, Ronda) fill up fast on weekends and in summer. Arrive early.",
+    "sub": []
+   },
+   {
+    "label": "Check access before you go",
+    "text": "",
+    "sub": [
+     "*Caminito del Rey:* tickets must be booked in advance (general entry around €10, guided around €18) and sell out weeks ahead.",
+     "*Estrets d'Arnes:* swimming is only allowed at the Toll Blau pool."
+    ]
+   },
+   {
+    "label": "Dirt tracks",
+    "text": "in Catalonia, driving is only allowed on open roads and authorised tracks; narrow tracks and off-road driving are prohibited.",
+    "sub": []
+   },
+   {
+    "label": "Fire season",
+    "text": "in summer, some forest areas and tracks close during high fire risk. Check local alerts before heading into the mountains.",
+    "sub": []
+   }
+  ],
+  "faq": [
+   {
+    "q": "What are the best hikes near Barcelona?",
+    "a": "Montserrat, the Garrotxa volcanoes, the Tavertet cliffs and the Cap de Creus coast are all within two hours. Sant Aniol d'Aguja adds a river hike with swimming pools."
+   },
+   {
+    "q": "Where can you go wild swimming in Spain?",
+    "a": "Great spots include Sant Aniol d'Aguja and the Alta Garrotxa in Girona, the Toll Blau pool in Els Ports, the warm pool of Fontcalda and the Fuente de los Baños in Montanejos."
+   },
+   {
+    "q": "Do you need tickets for the Caminito del Rey?",
+    "a": "Yes. Tickets must be booked in advance on the official website and often sell out weeks ahead, especially in spring and autumn."
+   },
+   {
+    "q": "When is the best time for a road trip along Mediterranean Spain?",
+    "a": "Spring (March–June) and autumn (September–November) are best. Summer is hot inland and busy on the coast; winter is mild and sunny, especially in the south."
+   },
+   {
+    "q": "Is the Costa Brava good for hiking?",
+    "a": "Yes. The coastal paths around Cap de Creus and Cadaqués combine hiking with hidden coves for swimming, and the volcanic Garrotxa is just inland."
+   }
+  ],
+  "cta": {
+   "heading": "The Mediterranean you don't see from the beach.",
+   "sub": "Volcanoes, gorges and cliff villages, starting right outside Barcelona. You just drive."
+  }
+ }
+]

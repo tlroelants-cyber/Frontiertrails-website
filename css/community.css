@@ -1,0 +1,106 @@
+/* ==============================================
+   FRONTIER TRAILS — community.css
+   /community/: one section in the site's usual container. The words on
+   the left, one composed collage of taped prints (as in the Journal) on
+   the right. Type, eyebrow, title and button come from pages.css.
+   ============================================== */
+
+.com {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: clamp(3rem, 6vw, 5.5rem);
+}
+
+/* ── The words ── */
+.com-text .page-title { margin: 1rem 0 1.6rem; font-size: clamp(3rem, 5vw, 4.8rem); white-space: nowrap; }
+/* A lead line, two short paragraphs, then the invitation above the button. */
+.com-lead {
+  max-width: 24ch;
+  margin-bottom: 1.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.9vw, 1.75rem);
+  line-height: 1.45;
+  color: var(--text);
+  text-wrap: pretty;
+}
+.com-p {
+  max-width: 44ch;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+.com-p + .com-p { margin-top: 1rem; }
+.com-invite {
+  max-width: 34ch;
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.4vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--text);
+}
+.com-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; margin-top: 1.6rem; }
+.com-note { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); }
+
+/* ── The collage: six prints laid on the table, overlapping a little ── */
+.com-collage { position: relative; aspect-ratio: 10 / 7.8; }
+.com-print {
+  position: absolute;
+  margin: 0;
+  padding: 8px 8px 10px;
+  background: #efe9dc;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: rotate(var(--rot));
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  animation: com-drop 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.05) backwards;
+}
+.com-print img { display: block; width: 100%; height: auto; }
+.com-print:hover { transform: rotate(0deg) scale(1.04); box-shadow: 0 28px 52px rgba(0, 0, 0, 0.7); z-index: 10; }
+@keyframes com-drop {
+  from { opacity: 0; transform: translateY(-28px) rotate(calc(var(--rot) + 5deg)); }
+  to   { opacity: 1; transform: rotate(var(--rot)); }
+}
+
+/* Top row: lookout, the forest walk (the centre of the collage), the via ferrata.
+   Bottom row: fishing and the valley, with the pine ridge tucked in at the right. */
+.com-print-lookout { --rot: -5deg;  left: 0;    top: 7%;  width: 27%; z-index: 2; animation-delay: 0.15s; }
+.com-print-forest  { --rot: 2deg;   left: 24%;  top: 0;   width: 31%; z-index: 3; animation-delay: 0.05s; }
+.com-print-ferrata { --rot: -3deg;  left: 55%;  top: 5%;  width: 26%; z-index: 2; animation-delay: 0.25s; }
+.com-print-pine    { --rot: 5deg;   right: 0;   top: 30%; width: 22%; z-index: 4; animation-delay: 0.35s; }
+.com-print-fishing { --rot: -2.5deg; left: 4%;  bottom: 0;  width: 40%; z-index: 5; animation-delay: 0.45s; }
+.com-print-valley  { --rot: 3deg;   left: 43%;  bottom: 4%; width: 38%; z-index: 6; animation-delay: 0.55s; }
+
+/* A strip of paper tape, slightly torn at the ends (as in the Journal). */
+.com-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 64px;
+  height: 20px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: rgba(240, 230, 200, 0.72);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(3% 8%, 12% 0, 30% 6%, 52% 0, 75% 5%, 96% 0, 100% 40%, 97% 92%, 80% 100%, 58% 94%, 35% 100%, 14% 95%, 0 100%, 2% 55%);
+  z-index: 2;
+}
+
+/* ── Tablets and phones: the words first, the collage below ── */
+@media (max-width: 900px) {
+  .com { grid-template-columns: 1fr; gap: 3.5rem; }
+  .com-collage { max-width: 640px; width: 100%; margin: 0 auto; }
+}
+@media (max-width: 560px) {
+  .com-text .page-title { white-space: normal; }
+  .com-print { padding: 5px 5px 7px; }
+  .com-tape { width: 44px; height: 14px; top: -7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .com-print { animation: none; transition: none; }
+}

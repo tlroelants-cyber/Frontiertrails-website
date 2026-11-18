@@ -1,0 +1,159 @@
+/* ==============================================
+   FRONTIER TRAILS — landscape.css
+   The four landscape pages (/the-frontier/<slug>/), built from Tom's
+   specs in "Pages build/". Loaded after pages.css: the hero, intro, other
+   landscapes and signup band reuse the landscape-page styles there. This
+   file adds the highlight cards, activity blocks, routes, the 12-month
+   strip, "On the road", the FAQ and the credits.
+   ============================================== */
+
+/* ── Header: the About page's header (same column, spacing and type), centred ── */
+.lp-head { padding: clamp(7rem, 12vw, 9rem) clamp(1rem, 4vw, 3rem) 0; }
+.lp-head-inner { text-align: center; }
+.lp-eyebrow { margin-top: 1.6rem; }
+.lp-h1-sub {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: clamp(1.15rem, 1.9vw, 1.6rem);
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+}
+
+/* ── The relief map, lit up, under the header ── */
+.lp-map { max-width: 1100px; margin: clamp(1.5rem, 3vw, 2.5rem) auto 0; padding: 0 clamp(1rem, 4vw, 3rem); }
+.lp-map img { display: block; width: 100%; height: auto; }
+
+/* ── Intro ── */
+.lp-intro { padding-bottom: clamp(2rem, 4vw, 3rem); }
+.lp-season { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); color: var(--text); }
+.lp-season .eyebrow { display: inline; margin-right: 0.8rem; }
+
+/* ── Sections ── */
+.lp-section { padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 3rem); }
+.lp-inner { max-width: 1100px; margin: 0 auto; }
+.lp-narrow { max-width: 820px; }
+.lp-section .section-title { margin-bottom: 1.8rem; }
+
+/* ── Highlights: text-first cards in the site's hairline grid ── */
+.lp-cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.lp-card { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.6rem 1.5rem 1.7rem; background: var(--bg); }
+.lp-card-img { width: calc(100% + 3rem); margin: -1.6rem -1.5rem 0.6rem; aspect-ratio: 3 / 2; object-fit: cover; }
+.lp-card-num { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.16em; color: var(--accent); }
+.lp-card-name { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; line-height: 1.22; }
+.lp-card-name a:hover { color: var(--accent); }
+.lp-card-meta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.lp-card-text { font-size: 1rem; line-height: 1.65; color: var(--text-secondary); }
+.lp-card-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; padding-top: 0.4rem; }
+.lp-card-tags li {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(240, 235, 224, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  color: var(--text-secondary);
+}
+
+/* ── What to do: line icon, name, one paragraph ── */
+.lp-acts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 2.2rem 2.6rem; }
+.lp-act { border-top: 1px solid var(--rule); padding-top: 1.2rem; }
+.lp-icon { width: 30px; height: 30px; color: var(--accent); }
+.lp-act-name { font-family: var(--font-display); font-weight: 400; font-size: 1.3rem; margin: 0.7rem 0 0.4rem; }
+.lp-act p { font-size: 1rem; line-height: 1.65; color: var(--text-secondary); }
+
+/* ── When to go: twelve months, shaded ── */
+.lp-months { list-style: none; display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; }
+.lp-month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+.lp-month.is-best, .lp-legend .is-best::before { background: var(--accent); color: var(--bg); }
+.lp-month.is-good, .lp-legend .is-good::before { background: rgba(var(--accent-rgb), 0.28); color: var(--text); }
+.lp-month.is-avoid, .lp-legend .is-avoid::before { background: transparent; color: var(--text-muted); box-shadow: inset 0 0 0 1px var(--rule); }
+.lp-legend { list-style: none; display: flex; gap: 1.4rem; margin: 0.9rem 0 1.8rem; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.lp-legend li { display: flex; align-items: center; gap: 0.5rem; }
+.lp-legend li::before { content: ''; width: 12px; height: 12px; }
+.lp-notes, .lp-road { list-style: none; }
+.lp-notes li, .lp-road > li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule-faint);
+  font-size: 1.04rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.lp-notes strong, .lp-road strong { color: var(--text); font-weight: 500; }
+.lp-road ul { list-style: none; margin-top: 0.6rem; }
+.lp-road ul li { position: relative; padding: 0.35rem 0 0.35rem 1.2rem; font-size: 0.98rem; }
+.lp-road ul li::before { content: ''; position: absolute; left: 0; top: 1.05rem; width: 6px; height: 1px; background: var(--accent); }
+.lp-road em { color: var(--text); font-style: normal; }
+
+/* ── FAQ: plain accordion (answers are in the HTML) ── */
+.lp-qa { border-bottom: 1px solid var(--rule); }
+.lp-qa summary { list-style: none; cursor: pointer; padding: 1.2rem 2.4rem 1.2rem 0; position: relative; }
+html.has-custom-cursor .lp-qa summary { cursor: none; }
+.lp-qa summary::-webkit-details-marker { display: none; }
+.lp-qa summary::after {
+  content: '+';
+  position: absolute; right: 0.4rem; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono); font-size: 1.2rem; color: var(--accent);
+  transition: transform 0.3s var(--ease-out);
+}
+.lp-qa[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.lp-q { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.2rem, 2vw, 1.4rem); line-height: 1.35; }
+.lp-qa summary:hover .lp-q { color: var(--accent); }
+.lp-qa p { padding: 0 0 1.4rem; font-size: 1.04rem; line-height: 1.75; color: var(--text-secondary); max-width: 62ch; }
+
+/* ── Other landscapes: number instead of a stamp ── */
+.lp-other-num { font-family: var(--font-mono); font-size: 1.1rem; color: var(--accent); width: 2.2rem; flex: none; }
+
+/* ── Credits: required, kept small ── */
+.lp-credits {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem clamp(1rem, 4vw, 3rem) 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+.lp-credits summary { cursor: pointer; text-transform: uppercase; list-style: none; padding: 0.6rem 0; }
+.lp-credits summary::-webkit-details-marker { display: none; }
+.lp-credits p { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.02em; line-height: 1.7; max-width: 70ch; }
+.lp-credits a { color: var(--text-secondary); text-decoration: underline; }
+
+/* ── Signup band: centred, like the homepage form ── */
+.lp .apply-band {
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
+    url('../website-header.webp') center 60% / cover;
+}
+.lp .apply-inner { max-width: 680px; }
+.lp .apply-band .ft-form { margin: 0 auto; }
+.lp .apply-band .waitlist-success { text-align: center; }
+
+@media (max-width: 768px) {
+  .lp-months { grid-template-columns: repeat(6, 1fr); }
+}

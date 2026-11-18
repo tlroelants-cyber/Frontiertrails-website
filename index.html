@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="New logo 1.0.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
   <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="Website header 2.0.png" type="image/png">
+  <link rel="preload" as="image" href="website-header.webp" type="image/webp">
 
   <!-- Primary SEO -->
   <title>4x4 Camper Rental in Barcelona, Spain | Frontier Trails</title>
@@ -39,26 +42,90 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutoRental",
-    "@id": "https://www.frontiertrails.es/",
-    "name": "Frontier Trails",
-    "url": "https://www.frontiertrails.es/",
-    "description": "Rent a fully equipped 4x4 camper with rooftop tent and curated routes across Spain. The adventurous alternative to a campervan — you just drive. Based in Barcelona.",
-    "areaServed": [
-      { "@type": "Country", "name": "Spain" },
-      { "@type": "AdministrativeArea", "name": "Catalonia" }
-    ],
-    "priceRange": "From €170/day",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.frontiertrails.es/New logo 1.0.png"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.frontiertrails.es/#organization",
+        "name": "Frontier Trails",
+        "url": "https://www.frontiertrails.es/",
+        "email": "hello@frontiertrails.es",
+        "foundingDate": "2026",
+        "foundingLocation": { "@type": "Place", "name": "Barcelona, Spain" },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.frontiertrails.es/icon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": ["https://instagram.com/frontiertrails_"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.frontiertrails.es/#website",
+        "url": "https://www.frontiertrails.es/",
+        "name": "Frontier Trails",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.frontiertrails.es/#organization" }
+      },
+      {
+        "@type": "AutoRental",
+        "@id": "https://www.frontiertrails.es/#business",
+        "name": "Frontier Trails",
+        "url": "https://www.frontiertrails.es/",
+        "parentOrganization": { "@id": "https://www.frontiertrails.es/#organization" },
+        "description": "Rent a fully equipped 4x4 camper with rooftop tent and curated routes across Spain. The adventurous alternative to a campervan — you just drive. Based in Barcelona.",
+        "image": "https://www.frontiertrails.es/og-image.jpg",
+        "logo": "https://www.frontiertrails.es/icon-512.png",
+        "email": "hello@frontiertrails.es",
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Barcelona",
+          "addressRegion": "Catalonia",
+          "addressCountry": "ES"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Spain" },
+          { "@type": "AdministrativeArea", "name": "Catalonia" }
+        ],
+        "knowsAbout": [
+          "Overlanding",
+          "Rooftop tent camping",
+          "4x4 road trips in Spain",
+          "Soft-road travel",
+          "Wild camping in Spain"
+        ],
+        "makesOffer": {
+          "@type": "Offer",
+          "name": "4x4 camper with rooftop tent, camp kitchen and curated route",
+          "availability": "https://schema.org/PreOrder",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": 180,
+            "priceCurrency": "EUR",
+            "unitCode": "DAY",
+            "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "DAY" }
+          }
+        },
+        "sameAs": ["https://instagram.com/frontiertrails_"]
+      }
+    ]
   }
-  </script>
+</script>
+
+  <!-- Literata: field-guide serif for display. Syne: body. DM Mono: roadbook
+       numerals, labels and the wordmark. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Static instances, not weight ranges: asking for `400..600` makes Google
+       serve variable fonts (~74 KB more here, and every glyph raster has to
+       interpolate the axis). We only use 3 cuts, so name them exactly. -->
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,600;1,400&family=Syne:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Vercel Web Analytics: cookieless, no banner needed. Only collects once enabled in the Vercel dashboard (Project > Analytics). -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -71,8 +138,31 @@
   <!-- Film grain -->
   <div class="grain" aria-hidden="true"></div>
 
+  <!-- No-JS fallback: the scroll experience needs JS, so surface the essentials -->
+  <noscript>
+    <style>
+      #loader { display: none !important; }
+      .noscript-note {
+        position: relative; z-index: 10000;
+        background: var(--bg-raised); color: var(--text);
+        text-align: center; padding: 1.1rem 1.4rem;
+        font-family: var(--font-body); font-size: 0.8rem; line-height: 1.7;
+        border-bottom: 1px solid rgba(var(--accent-rgb), 0.35);
+      }
+      .noscript-note a { color: var(--accent); }
+    </style>
+    <div class="noscript-note">
+      <strong>Frontier Trails</strong> — 4x4 camper rental in Barcelona.
+      The full experience needs JavaScript enabled. To join the waitlist, email
+      <a href="mailto:hello@frontiertrails.es">hello@frontiertrails.es</a>.
+    </div>
+  </noscript>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Loader -->
-  <div id="loader">
+  <div id="loader" role="progressbar" aria-label="Loading the Frontier Trails film"
+       aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
     <div class="loader-inner">
       <span class="loader-brand">FRONTIER TRAILS</span>
       <div class="loader-track">
@@ -82,16 +172,29 @@
     </div>
   </div>
 
-  <!-- Navigation -->
+  <!-- Wordmark: scrolls away with the page (no permanent bar) -->
   <header class="site-header" id="site-header">
-    <nav class="nav-inner">
-      <a href="#" class="nav-logo">FRONTIER TRAILS</a>
-      <div class="nav-links">
-        <a href="#cta" class="cta-nav" id="join-now-btn">Apply Now</a>
-      </div>
-    </nav>
+    <a href="/" class="nav-logo">FRONTIER TRAILS</a>
   </header>
 
+  <!-- Menu: a three-line button, top right. Hover (desktop) or tap opens it. -->
+  <button class="menu-btn" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span class="menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+  </button>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Site navigation">
+    <a href="/" class="mobile-nav-home">FRONTIER TRAILS</a>
+    <div class="mobile-nav-links">
+      <a href="/" class="mobile-nav-link" aria-current="page"><span class="nav-num">01</span><span class="nav-name">Home</span></a>
+      <a href="/the-frontier/" class="mobile-nav-link"><span class="nav-num">02</span><span class="nav-name">The Frontier</span></a>
+      <a href="/journal/" class="mobile-nav-link"><span class="nav-num">03</span><span class="nav-name">Journal</span></a>
+      <a href="/community/" class="mobile-nav-link"><span class="nav-num">04</span><span class="nav-name">Community</span></a>
+      <a href="/about/" class="mobile-nav-link"><span class="nav-num">05</span><span class="nav-name">About</span></a>
+      <a href="/faq/" class="mobile-nav-link"><span class="nav-num">06</span><span class="nav-name">FAQ</span></a>
+    </div>
+    <p class="mobile-nav-foot">Barcelona · Catalonia · Spain</p>
+  </nav>
+
+  <main id="main">
 
   <!-- Hero (standalone 100vh, photo background) -->
   <section class="hero-standalone" id="hero">
@@ -100,7 +203,11 @@
       <h1 class="hero-heading">The keys to the wild.<br>We handle the rest.</h1>
       <p class="hero-tagline">A fully equipped retro 4x4 and a route worth keeping. From a weekend escape to a week off the map — you just drive.</p>
       <a href="#cta" class="hero-cta" id="hero-cta-btn">Apply for early access</a>
-      <p class="hero-microcopy">First fleet launches 2026 · Limited founding group</p>
+      <p class="hero-microcopy">First adventures on their way · Limited founding group</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span class="scroll-cue-label">Scroll</span>
+      <span class="scroll-cue-arrow"></span>
     </div>
   </section>
 
@@ -108,13 +215,13 @@
   <section class="hook-section" id="hook">
     <div class="hook-inner">
       <h2 class="hook-heading">You know the feeling. Three weeks of holiday. Zero time to plan the trip you actually want.</h2>
-      <p class="hook-sub">Because somewhere between the gear list, the forum threads, and the 'maybe next year' — real adventure gets filed under 'someday.' We removed everything standing between you and the trip.</p>
+      <p class="hook-sub">Because somewhere between the gear list, the forum threads, and the ‘maybe next year’ — real adventure gets filed under ‘someday.’ We removed everything standing between you and the trip.</p>
     </div>
   </section>
 
   <!-- Canvas (fixed, full viewport, circle-wipes in) -->
   <div class="canvas-wrap" id="canvas-wrap">
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas" role="img" aria-label="A retro 4x4 Frontier Trails camper turns to reveal its rooftop tent and a campsite beside a fire"></canvas>
     <!-- 35mm film overlay layers -->
     <div class="canvas-film-grain" aria-hidden="true"></div>
     <div class="canvas-vignette"   aria-hidden="true"></div>
@@ -122,6 +229,9 @@
 
   <!-- Dark overlay (for stats section) -->
   <div id="dark-overlay" aria-hidden="true"></div>
+
+  <!-- Chapter progress indicator (desktop, built in JS from labelled sections) -->
+  <nav class="chapter-nav" id="chapter-nav" aria-label="Chapters"></nav>
 
 <!-- Scroll container: 1000vh, sections positioned absolutely -->
   <div id="scroll-container">
@@ -147,9 +257,9 @@
       <div class="section-inner">
         <span class="section-label">002 &nbsp;/&nbsp; The Rig</span>
         <h2 class="section-heading">Built for it. Packed for you.</h2>
-        <p class="section-body">A first-gen Honda CRV — lifted, trail-tested, an icon rebuilt for the backcountry.</p>
+        <p class="section-body">A retro 4x4 overlander. Lifted, trail-tested, an icon rebuilt for the backcountry.</p>
         <ul class="section-list">
-          <li>Rooftop tent, up in five minutes</li>
+          <li>Rooftop tent, up in two minutes</li>
           <li>Full camp kitchen &amp; fridge</li>
           <li>Curated route maps &amp; waypoints</li>
           <li>Recovery gear, comms &amp; a 24/7 support line</li>
@@ -161,7 +271,7 @@
     <section class="scroll-section section-mid-cta"
              data-enter="39" data-leave="51" data-animation="fade-up">
       <div class="mid-cta-inner">
-        <p class="mid-cta-text">We're starting small. On purpose.</p>
+        <h2 class="mid-cta-text">We’re starting small. On purpose.</h2>
         <p class="mid-cta-subtext">The first season belongs to a founding few. Apply before the spots are gone.</p>
         <a href="#cta" class="mid-cta-btn" id="mid-cta-btn">Apply for early access</a>
       </div>
@@ -176,22 +286,23 @@
         <div class="routes-grid">
 
           <article class="route-card">
-            <h3 class="route-name">The Smugglers' Pass</h3>
+            <h3 class="route-name">The Smugglers’ Pass</h3>
             <p class="route-body">No signal. No crowds. A border smugglers once crossed on foot.</p>
           </article>
 
           <article class="route-card">
             <h3 class="route-name">The Backyard Frontier</h3>
-            <p class="route-body">On Barcelona's doorstep — a world away. Craters, cliffs, and silence.</p>
+            <p class="route-body">On Barcelona’s doorstep — a world away. Craters, cliffs, and silence.</p>
           </article>
 
           <article class="route-card">
-            <h3 class="route-name">No Man's Land</h3>
-            <p class="route-body">One of Europe's only true deserts. Ghost towns and endless views.</p>
+            <h3 class="route-name">No Man’s Land</h3>
+            <p class="route-body">One of Europe’s only true deserts. Ghost towns and endless views.</p>
           </article>
 
         </div>
         <p class="routes-footer">Each route comes printed on a topographic rally-style map. Yours to keep.</p>
+        <a href="/the-frontier/" class="routes-link">Explore the six landscapes →</a>
       </div>
     </section>
 
@@ -200,11 +311,11 @@
              data-enter="69" data-leave="83" data-animation="stagger-up"
              data-dark-enter="68" data-dark-leave="83">
       <div class="stats-wrap">
-        <p class="stats-frame">From €170 a day — then make it yours.</p>
+        <h2 class="stats-frame">From €180 a day — then make it yours.</h2>
         <div class="stats-grid">
           <div class="stat">
             <div class="stat-value">
-              <span class="stat-prefix">€</span><span class="stat-number" data-static="true">170</span>
+              <span class="stat-prefix">€</span><span class="stat-number" data-static="true">180</span>
               <span class="stat-suffix">/ day</span>
             </div>
             <span class="stat-label">Fully equipped base</span>
@@ -233,7 +344,7 @@
       <div class="cta-inner">
         <span class="section-label cta-label">004 &nbsp;/&nbsp; Waitlist</span>
         <h2 class="cta-heading">Be first in line<br><em>to explore</em></h2>
-        <p class="cta-body">We're launching soon. Join the waitlist and we'll reach out first.</p>
+        <p class="cta-body">We’re launching soon. Join the waitlist and we’ll reach out first.</p>
 
         <form
           class="waitlist-form"
@@ -241,39 +352,48 @@
           action="https://formspree.io/f/mqeyjwdv"
           method="POST"
         >
+          <label class="visually-hidden" for="wl-name">Your name</label>
           <input
             type="text"
+            id="wl-name"
             name="name"
             class="waitlist-input"
             placeholder="Your name"
             autocomplete="name"
             required
           />
+          <label class="visually-hidden" for="wl-email">Your email address</label>
           <input
             type="email"
+            id="wl-email"
             name="email"
             class="waitlist-input"
             placeholder="Your email address"
             autocomplete="email"
             required
           />
+          <label class="visually-hidden" for="wl-phone">Phone number (optional)</label>
           <input
             type="tel"
+            id="wl-phone"
             name="phone"
             class="waitlist-input"
             placeholder="Phone number (optional)"
             autocomplete="tel"
           />
           <input type="hidden" name="_subject" value="New Waitlist Signup — Frontier Trails" />
-          <button type="submit" class="waitlist-submit">Apply for Early Access</button>
+          <!-- Honeypot: invisible to people, bots fill it and Formspree drops the submission -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button type="submit" class="waitlist-submit">Apply for early access</button>
+          <p class="waitlist-consent">By applying you agree we may contact you about Frontier Trails. Nothing else — we never share your details.</p>
         </form>
 
-        <div class="waitlist-success" id="waitlist-success">
-          <p class="waitlist-success-heading">You're on the list.</p>
-          <p class="waitlist-success-sub">We'll be in touch before anyone else.</p>
+        <div class="waitlist-success" id="waitlist-success" role="status" aria-live="polite">
+          <p class="waitlist-success-heading">You’re on the list.</p>
+          <p class="waitlist-success-sub">We’ll be in touch before anyone else.</p>
         </div>
 
-        <p class="waitlist-error" id="waitlist-error">
+        <p class="waitlist-error" id="waitlist-error" aria-live="assertive">
           Something went wrong — please try again or email us directly.
         </p>
       </div>
@@ -281,9 +401,48 @@
 
   </div><!-- /#scroll-container -->
 
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">FRONTIER TRAILS</span>
+        <p class="footer-blurb">4x4 camper rental in Barcelona, Spain. A fully equipped retro 4x4 with a rooftop tent and curated routes into Spain’s backcountry — the adventurous alternative to a campervan. You just drive.</p>
+        <p class="footer-loc">Barcelona · Catalonia · Spain</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="The six landscapes">
+        <span class="footer-nav-title">The Frontier</span>
+        <a href="/the-frontier/pyrenees/" class="footer-link">The Pyrenees</a>
+        <a href="/the-frontier/bardenas-reales/" class="footer-link">Bardenas Reales</a>
+        <a href="/the-frontier/monegros/" class="footer-link">Los Monegros</a>
+        <a href="/the-frontier/garrotxa/" class="footer-link">La Garrotxa</a>
+        <a href="/the-frontier/sierra-de-guara/" class="footer-link">Sierra de Guara</a>
+        <a href="/the-frontier/cap-de-creus/" class="footer-link">Cap de Creus</a>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <span class="footer-nav-title">Explore</span>
+        <a href="/journal/" class="footer-link">Journal</a>
+        <a href="/community/" class="footer-link">Community</a>
+        <a href="/about/" class="footer-link">About</a>
+        <a href="/faq/" class="footer-link">FAQ</a>
+        <a href="#cta" class="footer-link" id="footer-apply-btn">Apply for early access</a>
+        <a href="mailto:hello@frontiertrails.es" class="footer-link">hello@frontiertrails.es</a>
+      </nav>
+    </div>
+
+    <div class="footer-base">
+      <span class="footer-copy">© 2026 Frontier Trails · First adventures on their way</span>
+      <a href="https://www.instagram.com/frontiertrails_/" class="footer-social" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/nav.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+# Kept in git, but never served on the website
+tools/
+journey/
+frontier-trails-overview.md
+.claude/
+*.py
+__pycache__/
